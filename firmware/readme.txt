@@ -1,1 +1,0 @@
-This folder contains Propeller-based firmware for the cyber:bot product.
