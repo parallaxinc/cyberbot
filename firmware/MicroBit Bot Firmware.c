@@ -185,13 +185,16 @@ void i2cMaster()
 int main()
 {  
   //cog_run(i2cMaster, 512);
-  mbBusS = i2cslave_start(27, 26, 0x5D);
+  //mbBusS = i2cslave_start(27, 26, 0x5D);
 
-  //mbBusS = i2cslave_start(28, 29, 0x5D);
+  mbBusS = i2cslave_start(28, 29, 0x5D);  // set to the Propller's EEPROM i2c bus
   reg = i2cslave_regAddr(mbBusS);
   int i = 0;
   sirc_setTimeout(70);
-    high(22);
+  
+  high(20); // Turn on one of the on-board LEDs - for testing pusposes currently.
+  high(23); // Assert to connect the i2c bus between Propeller and Micro:bit together.
+  
   while(1)
   {
     int command = 0;
@@ -271,7 +274,6 @@ int main()
         servo_speed(pin1, arg1);
         break;
       case SERVO_SET:
-
         servo_set(pin1, arg1);
         break;
       case SERVO_SETRAMP:
