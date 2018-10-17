@@ -36,7 +36,7 @@ class bot_pin():
         if s is None:
             i2c.write(self.addr, b'\x18')
             r = i2c.read(self.addr, 4)
-            return int.from_bytes(r, 'big')
+            return int.from_bytes(r, 'little')
         else:
             i2c.write(self.addr, b'\x1C')
             r = i2c.read(self.addr, s)
