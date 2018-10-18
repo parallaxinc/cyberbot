@@ -40,6 +40,6 @@
       
       `propeller-load.exe -e firmware_release.binary`
       
-    * In Liinux or OS X, it will look something like this:
+    * In Linux or OS X, it will look something like this:
     
       `./propeller-load -e firmware_release.binary`
