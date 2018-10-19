@@ -27,7 +27,13 @@ class bot_pin():
             else:
                 break
 
-    def send_command(self, c, cmd=None):
+    def i2by(self, c, d, f=None):
+        bb = c.to_bytes(1, 'big') + d.to_bytes(4, 'little')
+        if f is not None:
+            bb = bb + f.to_bytes(4, 'little')
+        return bb
+        
+    def send_c(self, c, cmd=None):
         i2c.write(self.addr, bytes([1, self.pin]))
         if cmd is not None:
             i2c.write(self.addr, cmd)
@@ -37,7 +43,7 @@ class bot_pin():
             i2c.write(self.addr, b'\x00')
             s = i2c.read(self.addr, 1)
 
-    def read_result(self, s=None):
+    def read_r(self, s=None):
         if s is None:
             i2c.write(self.addr, b'\x18')
             r = i2c.read(self.addr, 4)
@@ -52,11 +58,11 @@ class bot_pin():
             s = 4
         elif s == 0:
             s = 2
-        self.send_command(s)
+        self.send_c(s)
 
     def digital_read(self):
-        self.send_command(3)
-        return self.read_result()
+        self.send_c(3)
+        return self.read_r()
 
     def states(self, ep, sp, s):
         self.pin = ep
@@ -67,60 +73,57 @@ class bot_pin():
         elif sp == self.pin:
             self.digital_write(s & 1)
         elif s is None:
-            self.send_command(8, bytes([2, sp]))
-            return self.read_result()
+            self.send_c(8, bytes([2, sp]))
+            return self.read_r()
         else:
-            self.send_command(7, bytes([2, sp]) + b'\x00' + 
-                              s.to_bytes(4, 'little'))
+            self.send_c(7, bytes([2, sp]) + self.i2by(0, s))
 
     def directions(self, ep, sp, d):
         self.pin = ep
         if sp > self.pin:
             raise ValueError('start pin is higher than end pin!')
         elif d is None:
-            self.send_command(6, bytes([2, sp]))
-            return self.read_result()
+            self.send_c(6, bytes([2, sp]))
+            return self.r()
         else:
-            self.send_command(5, bytes([2, sp]) + b'\x00' + 
-                              d.to_bytes(4, 'little'))
+            self.send_c(5, bytes([2, sp]) + self.i2by(0, d))
             
     def pulse_out(self, d):
-        self.send_command(11, b'\x04' + d.to_bytes(4, 'little'))
+        self.send_c(11, self.i2by(4, d))
 
     def pulse_in(self, s):
-        self.send_command(10, bytes([3, s]))
-        return self.read_result()
+        self.send_c(10, bytes([3, s]))
+        return self.read_r()
 
     def pulse_count(self, d):
-        self.send_command(12, b'\x04' + d.to_bytes(4, 'little'))
-        return self.read_result()
+        self.send_c(12, self.i2by(4, d))
+        return self.read_r()
 
     def rc_time(self, s):
-        self.send_command(16, bytes([3, s]))
-        return self.read_result()
+        self.send_c(16, bytes([3, s]))
+        return self.read_r()
 
     def frequency_out(self, d, f):
-        self.send_command(13, b'\x04' + d.to_bytes(4, 'little') + 
-                          f.to_bytes(4, 'little'))
+        self.send_c(13, self.i2by(4, d, f))
 
     def servo_angle(self, v):
-        self.send_command(24, b'\x04' + v.to_bytes(4, 'little'))
+        self.send_c(24, self.i2by(4, v))
 
     def servo_speed(self, v):
-        self.send_command(25, b'\x04' + v.to_bytes(4, 'little'))
+        self.send_c(25, self.i2by(4, v))
 
     def servo_set(self, v):
-        self.send_command(26, b'\x04' + v.to_bytes(4, 'little'))
+        self.send_c(26, self.i2by(4, v))
 
     def servo_ramping(self, v):
-        self.send_command(27, b'\x04' + v.to_bytes(4, 'little'))
+        self.send_c(27, self.i2by(4, v))
 
     def servo_disable(self):
-        self.send_command(28)
+        self.send_c(28)
 
     def ping_distance(self, unit=None):
-        self.send_command(29)
-        d = self.read_result()
+        self.send_c(29)
+        d = self.read_r()
         if unit is None:
             return d
         elif unit == 'in':
@@ -129,15 +132,17 @@ class bot_pin():
             return d / 58
 
     def tv_remote(self):
-        self.send_command(30)
-        return self.read_result()
+        self.send_c(30)
+        return self.read_r()
 
 ##########################
 # User code/test harness #
 ##########################
 
+bot_pin(22).frequency_out(1000, 1000)
 bot_pin(18).servo_speed(50)
 bot_pin(19).servo_speed(-50)
+
 
 while True:
     bot_pin(21).digital_write(0)
