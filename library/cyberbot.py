@@ -79,7 +79,7 @@ class bot_pin():
             return self.r()
         else:
             self.send_c(5, sp, d)
-            
+
     def pulse_out(self, d):
         self.send_c(11, 0, 0, d)
 
@@ -98,6 +98,10 @@ class bot_pin():
     def frequency_out(self, d, f):
         self.send_c(13, 0, 0, d, f)
 
+    def ir_detect(self, lp, f):
+        self.send_c(31, lp, 0, f)
+        return self.read_r()
+
     def servo_angle(self, v):
         self.send_c(24, 0, 0, v)
 
@@ -113,12 +117,12 @@ class bot_pin():
     def servo_disable(self):
         self.send_c(28)
 
-    def ping_distance(self, unit=None):
+    def ping_distance(self, u=None):
         self.send_c(29)
         d = self.read_r()
-        if unit is None:
+        if u is None:
             return d
-        elif unit == 'in':
+        elif u == 'in':
             return d / 148
         else:
             return d / 58
@@ -131,17 +135,23 @@ class bot_pin():
 # User code/test harness #
 ##########################
 
-bot_pin(22).frequency_out(500, 1000)
-bot_pin(18).servo_speed(50)
-bot_pin(19).servo_speed(-50)
+# bot_pin(22).frequency_out(500, 1000)
+# bot_pin(18).servo_speed(50)
+# bot_pin(19).servo_speed(-50)
 
 while True:
-    bot_pin(21).digital_write(2)
-    sleep(250)
-    bot_pin(21).digital_write(-1)
-    sleep(250)
-    t = bot_pin(1).digital_read()
-    if t == 0:
-        display.show(Image.HAPPY)
-    else:
-        display.show(Image.SAD)
+    irR = bot_pin(1).ir_detect(3, 39000)
+    irL = bot_pin(11).ir_detect(9, 39000)
+    
+    bot_pin(7).digital_write(irR)
+    bot_pin(8).digital_write(irL)
+
+    # bot_pin(21).digital_write(3)
+    # sleep(250)
+    # bot_pin(21).digital_write(3)
+    # sleep(250)
+    # t = bot_pin(1).digital_read()
+    # if t == 0:
+    #     display.show(Image.HAPPY)
+    # else:
+    #     display.show(Image.SAD)
