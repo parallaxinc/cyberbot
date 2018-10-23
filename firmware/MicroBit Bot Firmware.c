@@ -1,7 +1,7 @@
 /* SERIAL_TERMINAL USED */
 
 /*
-  MicroBit Bot Firmware.side
+  cyber:bot Firmware
   Propeller firmware mockup as I2C slave I/O expander.
 */
 
@@ -54,6 +54,8 @@
 
 #define PING_ECHO      29
 #define SIRC           30
+#define IR_DETECT      31
+#define PWM_OUT        32
 
 
 // ------ Global Variables and Objects ------
@@ -157,6 +159,11 @@ int main() {
         break;
       case FREQOUT:
         freqout(pin1, arg1, arg2);
+        break;
+      case IR_DETECT:
+        freqout(pin2, 1, arg1);
+        retVal = input(pin1);
+        memcpy(&reg[RETVAL], &retVal, 4);
         break;
       case PULSOUT:
         pulse_out(pin1, arg1);
