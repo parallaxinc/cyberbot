@@ -3,7 +3,7 @@ of student tutorial code. List of Examples Needed:
 - [x] IR Roaming - Andy
 - [ ] IR Distance Detection - Andy
 - [ ] IR Remote Control
-- [ ] QTI Line Following
+- [ ] QTI Line Following - Andy
 - [ ] Sense Light with Phototransistor
 - [ ] Roaming with Light
 - [ ] Whisker Detection
