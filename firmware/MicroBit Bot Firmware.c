@@ -56,6 +56,7 @@
 #define SIRC           30
 #define IR_DETECT      31
 #define PWM_OUT        32
+#define QTI_READ       33
 
 
 // ------ Global Variables and Objects ------
@@ -98,9 +99,9 @@ int pinMap[] = {
   31    //  31
 };
 
-
 // ------ Main Program ------
 int main() {
+  int microsecond = CLKFREQ / 1000000;
   mbBusS = i2cslave_open(28, 29, 0x5D);
   reg = i2cslave_regAddr(mbBusS);
 
@@ -154,6 +155,20 @@ int main() {
       case SETSTATES:
         set_outputs(pin1, pin2, state);
         break;
+      case QTI_READ:
+        if (arg1 < 10) {
+          arg1 = 230;
+        }
+        int m = 1 << (pin1 - pin2 + 1);
+        m--;
+        set_outputs(pin1, pin2, m);
+        set_directions(pin1, pin2, m);
+        waitcnt(microsecond * 250 + CNT);
+        set_directions(pin1, pin2, 0);
+        waitcnt(microsecond * arg1 + CNT);
+        retVal = get_states(pin1, pin2);
+        memcpy(&reg[RETVAL], &retVal, 4);
+        break;
       case PAUSE:
         pause(arg1);
         break;
@@ -177,9 +192,27 @@ int main() {
         memcpy(&reg[RETVAL], &retVal, 4);
         break;
       case RCTIME:
+        arg2 = (arg2 < 0 ? 0 : arg2);
+        arg2 = arg2 << 1;   // divide by 2
+        set_direction(pin1, 1);
+        if (arg2 < 1 || arg2 > 510) {
+          set_output(pin1, state);
+        } else {
+          // PWM the pin... (channel on pin2)
+        }
+        waitcnt(microsecond * arg1 + CNT);
         retVal = rc_time(pin1, state);
         memcpy(&reg[RETVAL], &retVal, 4);
         break;
+      case PWM_OUT:
+        // arg1 range 0-1023
+        if (pin1 == 20) {
+          // DA for pin 20
+        } else if (pin1 = 21) {
+          // DA for pin 21
+        } else {
+          // PWM the pin (channel on pin2)
+        }
       case SERVO_ANGLE:
         servo_angle(pin1, arg1);
         break;
