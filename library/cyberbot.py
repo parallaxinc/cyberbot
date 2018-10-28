@@ -66,8 +66,10 @@ class bot():
     # Set a pin to PWM at a specified duty cycle
     #   self - allows self.pin to be retrieved
     #   f - duty cycle (range = 0|off to 1023|full)
-    def analog_write(self, f):
-        self.send_c(32, 0, 0, f)
+    #   c - optional|channel of PWM to use (0|default or 1)
+    #       ignored if pin is 20 or 21
+    def analog_write(self, f, c=0):
+        self.send_c(32, c, 0, f)
 
     # Read the digital state of a pin
     #   self - allows self.pin to be retrieved
@@ -148,8 +150,9 @@ class bot():
     #   d - optional|time to drive pin high or low in us (default is 1000us)
     #   f - optional|PWM duty (0-1023) to charging with (default is 1023|100%),
     #       uses a PWM channel
-    def rc_time(self, s, d=None, f=None):
-        self.send_c(16, 0, s, d, f)
+    #   c - optional|channel of PWM to use (0|default or 1)
+    def rc_time(self, s, d=None, f=None, c=0):
+        self.send_c(16, c, s, d, f)
         return self.read_r()
 
     # Send a frequency out a pin 
