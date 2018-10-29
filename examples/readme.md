@@ -6,7 +6,7 @@ IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tr
 ## Examples needed:
 - [x] IR Roaming - Andy
 - [ ] IR Distance Detection - Andy
-- [ ] IR Remote Control
+- [x] IR Remote Control - Tommy
 - [x] QTI Line Following - Andy/Matt
 - [ ] Sense Light with Phototransistor
 - [ ] Roaming with Light
