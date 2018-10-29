@@ -116,15 +116,17 @@ int main() {
     }
     int pin1 = pinMap[(int) reg[PIN1]];
     int pin2 = pinMap[(int) reg[PIN2]];
+    reg[PIN2] = 0;
     unsigned int state = (unsigned int) reg[STATE];
+    reg[STATE] = 0;
     int arg1, arg2, arg3, arg4, arg5;
     int retVal = 0;
     
-    memcpy(&arg1, &reg[ARG1], 4);
-    memcpy(&arg2, &reg[ARG2], 4);
-    memcpy(&arg3, &reg[ARG3], 4);
-    memcpy(&arg4, &reg[ARG4], 4);
-    memcpy(&arg5, &reg[ARG5], 4);
+    memcpy(&arg1, &reg[ARG1], 4); memcpy(&reg[ARG1], &retVal, 4);
+    memcpy(&arg2, &reg[ARG2], 4); memcpy(&reg[ARG2], &retVal, 4);
+    memcpy(&arg3, &reg[ARG3], 4); memcpy(&reg[ARG3], &retVal, 4);
+    memcpy(&arg4, &reg[ARG4], 4); memcpy(&reg[ARG4], &retVal, 4);
+    memcpy(&arg5, &reg[ARG5], 4); memcpy(&reg[ARG5], &retVal, 4);
     
     switch(command) {
       case HIGH:
@@ -165,7 +167,9 @@ int main() {
         set_directions(pin1, pin2, m);
         waitcnt(microsecond * 250 + CNT);
         set_directions(pin1, pin2, 0);
-        waitcnt(microsecond * arg1 + CNT);
+        int dT = microsecond * arg1;
+        dT = dT < 150 ? 150 : dT;
+        waitcnt(dT + CNT);
         retVal = get_states(pin1, pin2);
         memcpy(&reg[RETVAL], &retVal, 4);
         break;
@@ -192,15 +196,18 @@ int main() {
         memcpy(&reg[RETVAL], &retVal, 4);
         break;
       case RCTIME:
-        arg2 = (arg2 < 0 ? 0 : arg2);
-        arg2 = arg2 << 1;   // divide by 2
+        print("arg1 = %d, arg2 = %d\r", arg1, arg2);
+        if (arg1 < 10) {
+          arg1 = 1000;
+        }
         set_direction(pin1, 1);
-        if (arg2 < 1 || arg2 > 510) {
+        if (arg2 < 1 || arg2 > 1023) {
           set_output(pin1, state);
         } else {
           // PWM the pin... (channel on pin2)
         }
-        waitcnt(microsecond * arg1 + CNT);
+        dT = microsecond * arg1;
+        waitcnt(dT + CNT);
         retVal = rc_time(pin1, state);
         memcpy(&reg[RETVAL], &retVal, 4);
         break;
