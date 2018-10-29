@@ -15,4 +15,4 @@ IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tr
 
 ## Minifying files:
 An online, minimal python minifier is available here, and was written just for this repository:
-[cyber:bot python minifier](http://jsfiddle.net/7pvxfurL/1/)
+[cyber:bot python minifier](http://jsfiddle.net/7pvxfurL/2/)
