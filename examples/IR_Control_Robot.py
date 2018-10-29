@@ -26,3 +26,4 @@ while True:
         bot(18).servo_speed(-75)
         bot(19).servo_speed(75)
         display.show(Image.ARROW_N)
+        
