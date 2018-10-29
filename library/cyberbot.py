@@ -10,7 +10,7 @@ from microbit import *
 #         select 'Minify Python...' to ensure   #
 #         memory isn't overflowed.              #
 #         Otherwise, delete all comments before #
-#         flasing to the micro:bit.             #
+#         flashing to the micro:bit.            #
 #################################################
 
 class bot():
