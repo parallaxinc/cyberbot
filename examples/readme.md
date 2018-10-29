@@ -12,3 +12,7 @@ IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tr
 - [ ] Roaming with Light
 - [ ] Whisker Detection
 - [ ] Roaming with Whiskers
+
+## Minifying files:
+An online, minimal python minifier is available here, and was written just for this repository:
+[cyber:bot python minifier](http://jsfiddle.net/7pvxfurL)
