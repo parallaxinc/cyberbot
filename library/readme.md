@@ -11,4 +11,4 @@ This folder contains Python library file(s) for the cyber:bot product.
 
 ## Minifying files:
 An online, minimal python minifier is available here, and was written just for this repository:
-[cyber:bot python minifier](http://jsfiddle.net/7pvxfurL/1/)
+[cyber:bot python minifier](http://jsfiddle.net/7pvxfurL/2/)
