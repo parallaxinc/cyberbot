@@ -1,8 +1,8 @@
 from microbit import *
+_s0 = 'little'
+_s1 = 'start pin > end pin!'
+_s2 = 'more than 8 pins selected!'
 class bot():
-	_s0 = 'little'
-	_s1 = 'start pin > end pin!'
-	_s2 = 'more than 8 pins selected!'
 	def __init__(self,p,a=0x5D):
 		self.addr=a
 		self.pin=p
