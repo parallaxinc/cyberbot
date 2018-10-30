@@ -24,10 +24,14 @@ while True:
 
     # set the wheel speed variables according
     # to the normalized differential
-    nDiff = round((150 * pR) / (pR + pL + 1) - 75)
+    nDiff = round((200 * pR) / (pR + pL + 1) - 100)
 
-    wL = 64 - nDiff
-    wR = -64 - nDiff
+    if nDiff > 0:
+        wL = 64 - nDiff
+        wR = -64
+    else:
+        wL = 64
+        wR = -64 - nDiff
     
     bot(18).servo_speed(wL)
     bot(19).servo_speed(wR)
