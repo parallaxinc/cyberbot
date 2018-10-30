@@ -196,7 +196,6 @@ int main() {
         memcpy(&reg[RETVAL], &retVal, 4);
         break;
       case RCTIME:
-        print("arg1 = %d, arg2 = %d\r", arg1, arg2);
         if (arg1 < 10) {
           arg1 = 1000;
         }
