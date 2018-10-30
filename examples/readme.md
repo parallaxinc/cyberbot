@@ -11,6 +11,8 @@ IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tr
 - [x] Sense Light with Phototransistor/Roaming with Light - Matt
 - [ ] Whisker Detection
 - [ ] Roaming with Whiskers
+- [ ] Push-Ping
+- [ ] Raom with Ping
 
 ## Minifying files:
 An online, minimal python minifier is available here, and was written just for this repository:
