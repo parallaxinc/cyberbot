@@ -7,9 +7,8 @@ IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tr
 - [x] IR Roaming - Andy
 - [ ] IR Distance Detection - Andy
 - [x] IR Remote Control - Tommy
-- [x] QTI Line Following - Andy/Matt
-- [ ] Sense Light with Phototransistor
-- [ ] Roaming with Light
+- [x] QTI Line Following - Matt
+- [x] Sense Light with Phototransistor/Roaming with Light - Matt
 - [ ] Whisker Detection
 - [ ] Roaming with Whiskers
 
