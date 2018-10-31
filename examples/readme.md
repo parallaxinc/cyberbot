@@ -9,10 +9,11 @@ IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tr
 - [x] IR Remote Control - Tommy
 - [x] QTI Line Following - Matt
 - [x] Sense Light with Phototransistor/Roaming with Light - Matt
-- [ ] Whisker Detection
+- [x] Whisker Detection - Tommy
 - [ ] Roaming with Whiskers
+- [x] Ping Test - Tommy
 - [ ] Push-Ping
-- [ ] Raom with Ping
+- [ ] Roam with Ping
 
 ## Minifying files:
 An online, minimal python minifier is available here, and was written just for this repository:
