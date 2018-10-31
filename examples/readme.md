@@ -10,7 +10,7 @@ IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tr
 - [x] QTI Line Following - Matt
 - [x] Sense Light with Phototransistor/Roaming with Light - Matt
 - [x] Whisker Detection - Tommy
-- [ ] Roaming with Whiskers
+- [X] Roaming with Whiskers - Tommy
 - [x] Ping Test - Tommy
 - [ ] Push-Ping
 - [ ] Roam with Ping
