@@ -11,7 +11,7 @@ IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tr
 - [x] Sense Light with Phototransistor/Roaming with Light - Matt
 - [x] Whisker Detection - Tommy
 - [X] Roaming with Whiskers - Tommy
-- [x] Ping Test - Tommy
+- [x] Ping Distance - Tommy
 - [ ] Push-Ping
 - [ ] Roam with Ping
 
