@@ -1,6 +1,6 @@
 # This folder contains Propeller-based firmware for the cyber:bot product.
 
-## Using [BlocklyProp Demo](http://demo.blockly.parallax.com)
+## Using BlocklyProp
 ### Make sure you have an account and that the appropriate client/launcher software is installed on your computer
 [Getting Started with BlocklyProp](http://learn.parallax.com/tutorials/language/blocklyprop/getting-started-blocklyprop)
 
@@ -21,3 +21,13 @@
 3b. [Open the project](http://blockly.parallax.com/blockly/projectlink?id=64207&key=5e20817a-ea20-4ee8-a178-a1ea6137dc93) - version 0.2 (Main Blockly Site - multiple refreshes may be required to make it appear until the site is updated ~Nov. 3, 2018)
 
 4. Click the green down-arrow with the bar to load the code to EEPROM.
+
+## Using SimpleIDE
+
+1. Make sure you have the latest version of the [demo branch of the Learn folder (Simple Libraries)](https://github.com/parallaxinc/simple-libraries/tree/demo)
+
+2. Open a new project and paste in the code from ________.c
+
+3. Connect a Prop Plug as indicated in the instructions above.
+
+3. Load the code to EEPROM.
