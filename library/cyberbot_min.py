@@ -1,7 +1,7 @@
 from microbit import *
-_s0 = 'little'
-_s1 = 'start pin > end pin!'
-_s2 = 'more than 8 pins selected!'
+_s0='little'
+_s1='start pin > end pin!'
+_s2='more than 8 pins selected!'
 class bot():
 	def __init__(self,p,a=0x5D):
 		self.addr=a
@@ -12,6 +12,17 @@ class bot():
 			except OSError:
 				pass
 			else:
+				i2c.write(a,bytes([0,99]))
+				sleep(10)	 
+				pin8.write_digital(1)
+				sleep(10)	 
+				while True:
+					try:
+						i2c.read(a,1)
+					except OSError:
+						pass
+					else:
+						break
 				break
 	def send_c(self,c,p=0,s=0,d=None,f=None):
 		a=bytes([1,self.pin,p,s])
