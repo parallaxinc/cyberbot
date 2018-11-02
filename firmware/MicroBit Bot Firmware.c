@@ -1,5 +1,8 @@
 /* SERIAL_TERMINAL USED */
 
+// Version 0.2 - not backward compatible, must be used with
+//               cyber:bot library version 0.2 or higher!
+
 /*
   cyber:bot Firmware
   Propeller firmware mockup as I2C slave I/O expander.
@@ -12,6 +15,8 @@
 #include "servo.h"
 #include "ping.h"
 #include "sirc.h"
+
+#define reboot() __builtin_propeller_clkset(0x80)
 
 #define COMMAND        0
 #define PIN1           1
@@ -58,11 +63,14 @@
 #define PWM_OUT        32
 #define QTI_READ       33
 
+#define HANDSHAKE      99
+
 
 // ------ Global Variables and Objects ------
 i2c *mbBusM;
 i2cslave *mbBusS;
 static char *reg;
+int running_flag = 0;
 
 int pinMap[] = {
   0,    //  0
@@ -112,6 +120,9 @@ int main() {
   while(1) {
     int command = 0;
     while(!command) {
+      if (running_flag && !input(23)) {
+        reboot();
+      }
       command = i2cslave_getReg(mbBusS, COMMAND);
     }
     int pin1 = pinMap[(int) reg[PIN1]];
@@ -241,6 +252,11 @@ int main() {
       case SIRC:
         retVal = sirc_button(pin1);
         memcpy(&reg[RETVAL], &retVal, 4);
+        break;
+      case HANDSHAKE:
+        input(23);
+        pause(15);
+        running_flag = 1;
         break;
     }
     i2cslave_putReg(mbBusS, 0, 0);
