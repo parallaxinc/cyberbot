@@ -26,8 +26,8 @@
 
 1. Make sure you have the latest version of the [demo branch of the Learn folder (Simple Libraries)](https://github.com/parallaxinc/simple-libraries/tree/demo)
 
-2. Open a new project and paste in the code from ________.c
+2. Open a new project and paste in the code from MicroBit Bot Firmware.c
 
 3. Connect a Prop Plug as indicated in the instructions above.
 
-3. Load the code to EEPROM.
+4. Load the code to EEPROM.
