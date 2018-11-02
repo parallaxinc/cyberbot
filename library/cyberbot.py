@@ -3,11 +3,14 @@ from microbit import *
 #################################################
 # The cyber:bot class                           #
 #################################################
+#  Version 0.2 - not compatible with firmware   #
+#  below version 0.2!                           #
+#################################################
 #  NOTE - this now contains heavy commenting.   #
 #         use the mu editor, then click the     #
 #         gear in the lower-right corner, then  #
 #         the micro:bit settings tab, then      #
-#         select 'Minify Python...' to ensure   #
+#         select [Minify Python...] to ensure   #
 #         memory isn't overflowed.              #
 #         Otherwise, delete all comments before #
 #         flashing to the micro:bit.            #
@@ -24,6 +27,17 @@ class bot():
             except OSError:
                 pass
             else:
+                i2c.write(a, bytes([0, 99]))
+                sleep(10)     # CRITICAL - do not adjust    
+                pin8.write_digital(1)
+                sleep(10)     # CRITICAL - do not adjust
+                while True:
+                    try:
+                        i2c.read(a, 1)
+                    except OSError:
+                        pass
+                    else:
+                        break
                 break
 
     # Send data to the Propeller via i2c
