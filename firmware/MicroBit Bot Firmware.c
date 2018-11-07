@@ -70,7 +70,9 @@
 i2c *mbBusM;
 i2cslave *mbBusS;
 static char *reg;
-int running_flag = 0;
+volatile int running_flag = 0;
+
+void resetMonitor();
 
 int pinMap[] = {
   0,    //  0
@@ -117,12 +119,11 @@ int main() {
 
   high(23);   // Connect the Propeller and micro:bit i2c busses together
   
+  cog_run(resetMonitor, 128);
+  
   while(1) {
     int command = 0;
     while(!command) {
-      if (running_flag && !input(23)) {
-        reboot();
-      }
       command = i2cslave_getReg(mbBusS, COMMAND);
     }
     int pin1 = pinMap[(int) reg[PIN1]];
@@ -260,5 +261,14 @@ int main() {
         break;
     }
     i2cslave_putReg(mbBusS, 0, 0);
+  }
+}
+
+void resetMonitor() {
+  pause(100);
+  while(1) {
+    if (running_flag && !input(23)) {
+      reboot();
+    }
   }
 }
