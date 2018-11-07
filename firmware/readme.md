@@ -24,10 +24,27 @@
 
 ## Using SimpleIDE
 
-1. Make sure you have the latest version of the [demo branch of the Learn folder (Simple Libraries)](https://github.com/parallaxinc/simple-libraries/tree/demo)
+1. Make sure you have the latest version of SimpleIDE.    
+   * Mac: Open SimpleIDE, click the SimpleIDE menu, and select About SimpleIDE.  
+   * Windows: Open SimpleIDE, click the Help menu, and select About.  
+   In either case, a banner should appear with "SimpleIDE Version 1.1.0".
+   * If you do not have the latest version:
+       * Close SimpleIDE.
+       * Optionally, zip your existing ...Documents\SimpleIDE folder so that you have a backup that's easy to find.
+       * Go to [Propeller C - Set Up SimpleIDE](http://learn.parallax.com/tutorials/language/propeller-c/propeller-c-set-simpleide), and follow the installation instruction link for your Mac or Windows OS. 
+       * After installing or reinstalling SimpleIDE, run it once, and follow the prompts to let it automatically create/update your Workspace.
 
-2. Open a new project and paste in the code from MicroBit Bot Firmware.c
+2. Manually update your Simple Libraries folder.  (Yes, do this, even if it just automatically updated your Workspace folder in step 1.)
+   * Find and delete your Simple Libraries folder.  Its default location is ...Documents\SimpleIDE\Learn\ 
+   * Here is a direct link to [Simple-Libraries-demo.zip](https://github.com/parallaxinc/Simple-Libraries/archive/demo.zip).  Download and unzip it.
+   * In a file browser, find the Simple Libraries folder.  If you or your web browser unzipped it into ...Downloads, you can find it in ...Downloads\Simple-Libraries-demo\Learn\
+   * Right click and copy that Simple Libraries folder.
+   * Go to ...Documents\SimpleIDE\Learn\ and paste the new Simple Libraries folder into it.
 
 3. Connect a Prop Plug as indicated in the instructions above.
 
-4. Load the code to EEPROM.
+4. In SimpleIDE, open a new project and paste in the code from [MicroBit Bot Firmware.c](https://github.com/parallaxinc/cyberbot/blob/master/firmware/MicroBit%20Bot%20Firmware.c)
+
+5. Set SimpleIDE's COM Port dropdown to your PropPlug's port.
+
+6. Click the Load EEPROM & Run button (or select Load EEPROM & Run F11 from the Program menu).
