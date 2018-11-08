@@ -18,7 +18,7 @@
 
 3a. [Open the project](http://demo.blockly.parallax.com/blockly/projectlink?id=2104&key=39344de2-50c5-4bcc-afc4-0414d3de5055) - version 0.1 (Demo).
 
-3b. [Open the project](http://blockly.parallax.com/blockly/projectlink?id=64207&key=5e20817a-ea20-4ee8-a178-a1ea6137dc93) - version 0.2 (Main Blockly Site - multiple refreshes may be required to make it appear until the site is updated ~Nov. 3, 2018)
+3b. [Open the project](http://blockly.parallax.com/blockly/projectlink?id=64207&key=5e20817a-ea20-4ee8-a178-a1ea6137dc93) - version 0.2 (Main Blockly Site)
 
 4. Click the green down-arrow with the bar to load the code to EEPROM.
 
