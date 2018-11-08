@@ -1,7 +1,6 @@
 from microbit import *
 class bot():
-	def __init__(self,p,a=93):
-		self.addr=a
+	def __init__(self,p):
 		self.pin=p
 		while True:
 			try:i2c.read(a,1)
@@ -18,15 +17,15 @@ class bot():
 		a=bytes([1,self.pin,p,s])
 		if d is not None:a+=d.to_bytes(4,'little')
 		if f is not None:a+=f.to_bytes(4,'little')
-		i2c.write(self.addr,a)
-		i2c.write(self.addr,bytes([0,c]))
+		i2c.write(93,a)
+		i2c.write(93,bytes([0,c]))
 		c=b'\x01'
 		while c!=b'\0':
-			i2c.write(self.addr,b'\0')
-			c=i2c.read(self.addr,1)
+			i2c.write(93,b'\0')
+			c=i2c.read(93,1)
 	def read_r(self):
-		i2c.write(self.addr,b'\x18')
-		r=i2c.read(self.addr,4)
+		i2c.write(93,b'\x18')
+		r=i2c.read(93,4)
 		return int.from_bytes(r,'little')
 	def digital_write(self,s):
 		if s>1 or s<0:s=4
