@@ -1,13 +1,13 @@
 from microbit import *
 class bot():
-	def __init__(self,p,a=0x5D):
+	def __init__(self,p,a=93):
 		self.addr=a
 		self.pin=p
 		while True:
 			try:i2c.read(a,1)
 			except OSError:pass
 			else:
-				i2c.write(a,bytes([0,99]));sleep(10)	 
+				i2c.write(a,b'\0c');sleep(10)	 
 				pin8.write_digital(1);sleep(10)	 
 				while True:
 					try:i2c.read(a,1)
@@ -16,13 +16,13 @@ class bot():
 				break
 	def send_c(self,c,p=0,s=0,d=None,f=None):
 		a=bytes([1,self.pin,p,s])
-		if d is not None:a=a+d.to_bytes(4,'little')
-		if f is not None:a=a+f.to_bytes(4,'little')
+		if d is not None:a+=d.to_bytes(4,'little')
+		if f is not None:a+=f.to_bytes(4,'little')
 		i2c.write(self.addr,a)
 		i2c.write(self.addr,bytes([0,c]))
 		c=b'\x01'
-		while c!=b'\x00':
-			i2c.write(self.addr,b'\x00')
+		while c!=b'\0':
+			i2c.write(self.addr,b'\0')
 			c=i2c.read(self.addr,1)
 	def read_r(self):
 		i2c.write(self.addr,b'\x18')
