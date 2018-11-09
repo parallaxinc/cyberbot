@@ -14,6 +14,9 @@ IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tr
 - [x] Ping Distance - Tommy
 - [ ] Push-Ping
 - [ ] Roam with Ping
+- [ ] Long navigation routine
+- [ ] Dance routine
+- [ ] IR Multi-Bot (Andy)
 
 ## Minifying files:
 An online, minimal python minifier is available here, and was written just for this repository:
