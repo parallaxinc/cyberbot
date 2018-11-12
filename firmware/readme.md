@@ -16,9 +16,9 @@
       * <TX - The pin immediately below *and* to the left of VSS
       * \>RX - The pin immediately below VSS
 
-3a. [Open the project](http://demo.blockly.parallax.com/blockly/projectlink?id=2104&key=39344de2-50c5-4bcc-afc4-0414d3de5055) - version 0.1 (Demo).
-
-3b. [Open the project](http://blockly.parallax.com/blockly/projectlink?id=64207&key=5e20817a-ea20-4ee8-a178-a1ea6137dc93) - version 0.2 (Main Blockly Site)
+3a. [Open version 0.1](http://demo.blockly.parallax.com/blockly/projectlink?id=2104&key=39344de2-50c5-4bcc-afc4-0414d3de5055) on the Demo site.
+3b. [Open version 0.2](http://blockly.parallax.com/blockly/projectlink?id=64207&key=5e20817a-ea20-4ee8-a178-a1ea6137dc93) on the main Blockly site.
+3c. [Open version 0.3](http://demo.blockly.parallax.com/blockly/projectlink?id=2123&key=6b8fd72f-054e-4e60-9245-00b3316603c4) on the Demo site.
 
 4. Click the green down-arrow with the bar to load the code to EEPROM.
 
