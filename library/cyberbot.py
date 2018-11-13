@@ -3,9 +3,6 @@ from microbit import *
 #################################################
 # The cyber:bot class                           #
 #################################################
-#  Version 0.2 - not compatible with firmware   #
-#  below version 0.2!                           #
-#################################################
 #  NOTE - this now contains heavy commenting.   #
 #         use the mu editor, then click the     #
 #         gear in the lower-right corner, then  #
@@ -13,35 +10,36 @@ from microbit import *
 #         select [Minify Python...] to ensure   #
 #         memory isn't overflowed.              #
 #         Otherwise, delete all comments before #
-#         flashing to the micro:bit.            #
+#         flasing to the micro:bit.             #
 #################################################
 
-class bot():
-
-    def __init__(self, p, a=0x5D):
-        self.addr = a
-        self.pin = p
+# establish initial i2c connection and handshake with the propeller
+while True:
+    try:
+        i2c.read(0x53, 1)
+    except OSError:
+        pass
+    else:
+        i2c.write(0x53, b'\0c')
+        sleep(10)     # CRITICAL - do not adjust    
+        pin8.write_digital(1)
+        sleep(10)     # CRITICAL - do not adjust
         while True:
             try:
-                i2c.read(a, 1)
+                i2c.read(0x53, 1)
             except OSError:
                 pass
             else:
-                i2c.write(a, bytes([0, 99]))
-                sleep(10)     # CRITICAL - do not adjust    
-                pin8.write_digital(1)
-                sleep(10)     # CRITICAL - do not adjust
-                while True:
-                    try:
-                        i2c.read(a, 1)
-                    except OSError:
-                        pass
-                    else:
-                        break
                 break
+        break
+
+class bot():
+
+    def __init__(self, p):
+        self.pin = p
 
     # Send data to the Propeller via i2c
-    #   self - allows self.pin and self.addr to be retrieved
+    #   self - allows self.pin and 0x53 to be retrieved
     #   c - command code, defined as constants in cyberbot firmware
     #   p - optional|pin 2 (usually start pin, pin 1 is end pin)
     #   s - optional|state/direction (bit for 1 pin or byte for multiple pins)
@@ -50,21 +48,21 @@ class bot():
     def send_c(self, c, p=0, s=0, d=None, f=None):
         a = bytes([1, self.pin, p, s])
         if d is not None:
-            a = a + d.to_bytes(4, 'little')
+            a = a + (round(d)).to_bytes(4, 'little')
         if f is not None:
-            a = a + f.to_bytes(4, 'little')
-        i2c.write(self.addr, a)
-        i2c.write(self.addr, bytes([0, c]))
+            a = a + (round(f)).to_bytes(4, 'little')
+        i2c.write(0x53, a)
+        i2c.write(0x53, bytes([0, c]))
         c = b'\x01'
-        while c != b'\x00':
-            i2c.write(self.addr, b'\x00')
-            c = i2c.read(self.addr, 1)
+        while c != b'\0':
+            i2c.write(0x53, b'\0')
+            c = i2c.read(0x53, 1)
 
     # Retrieve return value data to the Propeller via i2c
-    #   self - allows self.addr to be retrieved
+    #   self - allows 0x53 to be retrieved
     def read_r(self):
-        i2c.write(self.addr, b'\x18')
-        r = i2c.read(self.addr, 4)
+        i2c.write(0x53, b'\x18')
+        r = i2c.read(0x53, 4)
         return int.from_bytes(r, 'little')
 
     # Set a pin to output a specified state
@@ -78,12 +76,17 @@ class bot():
         self.send_c(s)
         
     # Set a pin to PWM at a specified duty cycle
+    #  NOTE: except with using pin 20 or pin 21, there are
+    #        four available PWM channels.  They are assigned
+    #        automatically, and when a 5th one is requested, the
+    #        channel set to PWM a pin first will be reclaimed.
+    #  NOTE: calling any other operation that outputs to or reads
+    #        from a pin will turn off any PWM that was previously
+    #        assigned to that pin.
     #   self - allows self.pin to be retrieved
     #   f - duty cycle (range = 0|off to 1023|full)
-    #   c - optional|channel of PWM to use (0|default or 1)
-    #       ignored if pin is 20 or 21
-    def analog_write(self, f, c=0):
-        self.send_c(32, c, 0, f)
+    def analog_write(self, f):
+        self.send_c(32, 0, 0, f)
 
     # Read the digital state of a pin
     #   self - allows self.pin to be retrieved
@@ -196,20 +199,11 @@ class bot():
     #  NOTE - speeds are NOT linear
     #   self - allows self.pin to be retrieved
     #   v - speed to set servo to (-100 to 100 is approx. linear range)
-    def servo_speed(self, v):
-        self.send_c(25, 0, 0, v)
-
-    # Send a servo pulse of the specified width in us
-    #   self - allows self.pin to be retrieved
-    #   v - pulse width (1500 = center|90deg)
-    def servo_set(self, v):
-        self.send_c(26, 0, 0, v)
-
-    # Set a maximum rate of change for servo commands
-    #   self - allows self.pin to be retrieved
-    #   v - ramping maximum (lower=sluggish, higher=snappy)
-    def servo_ramping(self, v):
-        self.send_c(27, 0, 0, v)
+    #   p - optional|pin for second connected servo
+    #   f - optional|speed to set second servo to (inverted for 
+    #       differential drive, -100 to 100 is approx. linear range)
+    def servo_speed(self, v, p=33, f=0):
+        self.send_c(25, p, 0, v, f)
 
     # Stop sending servo pulses to the specified pin
     #   self - allows self.pin to be retrieved
