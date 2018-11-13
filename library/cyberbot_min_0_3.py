@@ -15,8 +15,8 @@ class bot():
 		self.pin=p
 	def send_c(self,c,p=33,s=0,d=None,f=None):
 		a=bytes([1,self.pin,p,s])
-		if d is not None:a+=d.to_bytes(4,'little')
-		if f is not None:a+=f.to_bytes(4,'little')
+		if d is not None:a+=(round(d)).to_bytes(4,'little')
+		if f is not None:a+=(round(f)).to_bytes(4,'little')
 		i2c.write(93,a)
 		i2c.write(93,bytes([0,c]))
 		c=b'\x01'
@@ -78,8 +78,8 @@ class bot():
 		self.send_c(29)
 		d=self.read_r()
 		if u is None:return d
-		elif u=='in':return round(d/148)
-		else:return round(d/58)
+		elif u=='in':return d/148
+		else:return d/58
 	def tv_remote(self):
 		self.send_c(30)
 		return self.read_r()
