@@ -45,7 +45,9 @@
 
 3. Connect a Prop Plug as indicated in the instructions above.
 
-4. In SimpleIDE, open a new project and paste in the code from [MicroBit Bot Firmware.c](https://github.com/parallaxinc/cyberbot/blob/master/firmware/MicroBit%20Bot%20Firmware.c)
+4. Download and open the MicroBit Bot Firmware v0_3 project in SimpleIDE.  Here are two ways to do that.
+   * In SimpleIDE, open a new project and paste in the code from [MicroBit Bot Firmware v0_3.c](https://github.com/parallaxinc/cyberbot/blob/master/firmware/MicroBit%20Bot%20Firmware%20v0_3.c)
+   * Save the files in these two links [MicroBit Bot Firmware v0_3.c](https://github.com/parallaxinc/cyberbot/blob/master/firmware/MicroBit%20Bot%20Firmware%20v0_3.c) [MicroBit Bot Firmware v0_3.side](https://github.com/parallaxinc/cyberbot/blob/master/firmware/MicroBit%20Bot%20Firmware%20v0_3.side to the same folder, then open the .side file with SimpleIDE.
 
 5. Set SimpleIDE's COM Port dropdown to your PropPlug's port.
 
