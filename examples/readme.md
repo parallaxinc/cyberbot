@@ -12,7 +12,7 @@ IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tr
 - [x] Whisker Detection - Tommy
 - [X] Roaming with Whiskers - Tommy
 - [x] Ping Distance - Tommy
-- [ ] Push-Ping
+- [x] Push-Ping - Matt
 - [ ] Roam with Ping
 - [ ] Long navigation routine
 - [ ] Dance routine
