@@ -1,5 +1,6 @@
 ##############################
 # QTI Sensors Line Following #
+# Requires v0.3              #
 ##############################
 
 bot(22).frequency_out(500, 1000)
