@@ -37,5 +37,4 @@ while True:
     elif q == 0b0001:
         wR = 16; wL = 32
 
-    bot(16).servo_speed(wL)
-    bot(17).servo_speed(-wR)
+    bot(18).servo_speed(wL, -wR)
