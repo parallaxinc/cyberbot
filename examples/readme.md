@@ -5,16 +5,17 @@ IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tr
 
 ## Examples needed:
 - [x] IR Roaming - Andy
-- [x] IR Distance Detection - Andy
+- [x] IR Distance Detection (f-sweep) - Andy
+- [ ] IR Distance Detection (pwm-adc) (req. v0.3) - Andy/Matt
 - [x] IR Remote Control - Tommy
 - [x] QTI Line Following - Matt
 - [x] Sense Light with Phototransistor/Roaming with Light - Matt
 - [x] Whisker Detection - Tommy
 - [X] Roaming with Whiskers - Tommy
 - [x] Ping Distance - Tommy
-- [x] Push-Ping - Matt
+- [x] Push-Ping (req. v0.3) - Matt
 - [ ] Roam with Ping
-- [ ] Long navigation routine
+- [x] Long navigation routine (req. v0.3) - Matt
 - [ ] Dance routine
 - [ ] IR Multi-Bot (Andy)
 
