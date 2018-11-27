@@ -199,11 +199,12 @@ class bot():
     #  NOTE - speeds are NOT linear
     #   self - allows self.pin to be retrieved
     #   v - speed to set servo to (-100 to 100 is approx. linear range)
-    #   p - optional|pin for second connected servo
-    #   f - optional|speed to set second servo to (inverted for 
-    #       differential drive, -100 to 100 is approx. linear range)
-    def servo_speed(self, v, p=33, f=0):
-        self.send_c(25, p, 0, v, f)
+    #   d - optional|speed to set second servo to
+    def servo_speed(self, v, d=None):
+        if d is None:
+            self.send_c(25, 33, 0, v, d)
+        else:
+            self.send_c(25, self.pin + 1, 0, v, d)
 
     # Stop sending servo pulses to the specified pin
     #   self - allows self.pin to be retrieved
