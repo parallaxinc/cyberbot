@@ -231,7 +231,7 @@ int main() {
           break;
         case SERVO_SPEED:
           if (pin2 >= 0 && pin2 < 33) {
-            servo_speed(pin2, -arg2);
+            servo_speed(pin2, arg2);
           }
           servo_speed(pin1, arg1);
           break;
