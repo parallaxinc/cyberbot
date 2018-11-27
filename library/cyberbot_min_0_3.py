@@ -72,7 +72,9 @@ class bot():
 		self.send_c(31,p,0,f)
 		return self.read_r()
 	def servo_angle(self,v):self.send_c(24,0,0,v)
-	def servo_speed(self,v,p=33,f=0):self.send_c(25,p,0,v,f)
+	def servo_speed(self,v,d=None):
+		if d is None:self.send_c(25,33,0,v,d)
+		else:self.send_c(25,self.pin+1,0,v,d)
 	def servo_disable(self):self.send_c(28)
 	def ping_distance(self,u=None):
 		self.send_c(29)
