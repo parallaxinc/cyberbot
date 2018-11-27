@@ -8,7 +8,7 @@ IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tr
 - [x] IR Distance Detection (f-sweep) - Andy
 - [ ] IR Distance Detection (pwm-adc) (req. v0.3) - Andy/Matt
 - [x] IR Remote Control - Tommy
-- [x] QTI Line Following - Matt
+- [x] QTI Line Following (req. v0.3) - Matt
 - [x] Sense Light with Phototransistor/Roaming with Light - Matt
 - [x] Whisker Detection - Tommy
 - [X] Roaming with Whiskers - Tommy
