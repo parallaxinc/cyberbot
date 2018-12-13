@@ -4,7 +4,6 @@
  * Read more at https://makecode.microbit.org/blocks/custom
  */
 
-
 // Initialize routine - may need to move into a block that the user calls "on startup"
 while (pins.digitalReadPin(DigitalPin.P8) == 0);
 basic.pause(1)
@@ -15,11 +14,28 @@ pins.digitalWritePin(DigitalPin.P8, 1)
 basic.pause(10)
 
 
+
 enum MyEnum {
     //% block="one"
     One,
     //% block="two"
     Two
+}
+
+enum pinReadType {
+    //% block="qti sensors"
+    qti,
+    //% block="digital states"
+    states,
+    //% block="digital directions"
+    directions
+}
+
+enum pinSetType {
+    //% block="states"
+    states,
+    //% block="directions"
+    directions
 }
 
 enum botPin {
@@ -74,7 +90,7 @@ enum botPin {
 /**
  * Cyberbot blocks
  */
-//% weight=100 color=#000000 icon="\uf1b9"
+//% weight=100 color=#1a26ce icon="\uf085"
 namespace cyberbot {
     export function sendCommand(pin1: number, cmd: number, pin2: number, states: number, arg1: number, arg2: number) {
         let outStop0 = true
@@ -106,6 +122,7 @@ namespace cyberbot {
      * @param s what state to set the pin to
      */
     //% block
+    //% s.min=0 s.max=2
     export function digitalWrite(p: botPin, s: number): void {
         if (s < 0 || s > 1) { s = 4 }
         if (s == 0) { s = 2 }
@@ -133,20 +150,39 @@ namespace cyberbot {
     export function digitalRead(p: botPin): number {
         sendCommand(p, 3, 0, 0, null, null)
         pins.i2cWriteNumber(83, 24, NumberFormat.UInt8LE, true)
-        return pins.i2cReadNumber(83, NumberFormat.UInt8LE, false)
+        return pins.i2cReadNumber(83, NumberFormat.Int32LE, false)
     }
-    
+
     /**
      * Read the digital states of a group of pins
-     * @param p end pin
-     * @param p2 start pin
-     * @returns binary value representing states of each pin
+     * @param startPin starting pin
+     * @param numberOfPins [2-8] number of pins, eg: 4
      */
-    //% block="read digital states from high pin $p|to low pin $p2"
-    //% inlineInputMode=inline
-        export function readDigitalStates(p: botPin, p2: botPin): number {
-        //sendCommand(p, 3, 0, 0, null, null)
-        //pins.i2cWriteNumber(83, 24, NumberFormat.UInt8LE, true)
-        return 0 //pins.i2cReadNumber(83, NumberFormat.UInt8LE, false)
+    //% block="read $action from $p2 pins starting at $startPin"
+    //% numberOfPins.min=2 numberOfPins.max=8
+    export function readDigitalStates(action: pinReadType, startPin: botPin, numberOfPins: number = 4): number {
+        let a = 33;  // qti
+        switch (action) {
+            case pinReadType.states: a = 8;  // states
+            case pinReadType.directions: a = 6;  // directions
+        }
+        sendCommand(numberOfPins + startPin - 1, a, startPin, 0, null, null)
+        pins.i2cWriteNumber(83, 24, NumberFormat.UInt8LE, true)
+        return pins.i2cReadNumber(83, NumberFormat.Int32LE, false)
     }
+
+    /**
+     * Set the digital states of a group of pins
+     * @param action 
+     * @param startPin starting pin
+     * @param numberOfPins [2-8] number of pins, eg: 4
+     * @param states binary value to set pins to
+     */
+    //% block="write digital $action to $numberOfPins pins|starting at $startPin|using $sts"
+    //% inlineInputMode=inline
+    //% numberOfPins.min=2 numberOfPins.max=8
+    export function writeDigitalStates(action: pinSetType, startPin: botPin, numberOfPins: number = 4, sts: number): void {
+        sendCommand(numberOfPins + startPin - 1, (action == pinSetType.states ? 7 : 5), startPin, sts, null, null)
+    }
+
 }
