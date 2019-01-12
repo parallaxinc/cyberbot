@@ -1,8 +1,6 @@
+# IR_Distance_Test_F.py
 
-
-##########################
-# IR Distance Test       #
-##########################
+from parallax import *
 
 bot(22).frequency_out(500, 1000)
 
@@ -12,8 +10,8 @@ while True:
     irR = 0
     
     for f in range(38000, 43000, 1000):
-        irR += bot(3).ir_detect(1, f)
-        irL += bot(9).ir_detect(11, f)
+        irR += bot(13).ir_detect(14, f)
+        irL += bot(2).ir_detect(1, f)
 
     for n in range(0, 5, 1):
         display.set_pixel(4, n, 0)

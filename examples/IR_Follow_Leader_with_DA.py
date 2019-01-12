@@ -1,11 +1,6 @@
-# IR_Follow_DA.py 
+# IR_Follow_Leader_with_DA.py 
 
-# Pending firmware update 
-
-# P11-R2k-IRLED-P20
-# P9-IR detector
-# P3-IR detector
-# p1-R2k-IRLED-P21
+from parallax import *
 
 setPoint = 4
 errorL = 0
@@ -24,8 +19,8 @@ while True:
     for da in range(512, 0, -64):
         bot(20).analog_write(da)
         bot(21).analog_write(da)
-        irL += bot(9).ir_detect(11, 38000)
-        irR += bot(3).ir_detect(1, 38000)
+        irL += bot(13).ir_detect(14, 38000)
+        irR += bot(2).ir_detect(1, 38000)
         
     for n in range(0, 5, 1):
         display.set_pixel(4, n, 0)

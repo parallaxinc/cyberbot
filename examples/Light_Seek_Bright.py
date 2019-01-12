@@ -1,9 +1,13 @@
+# Light_Seek_Bright.py
+
+from parallax import *
+
 bot(22).frequency_out(500, 1000)
 
 while True:
 
     # read the phototransistors
-    pL = bot(9).rc_time(1)
+    pL = bot(11).rc_time(1)
     pR = bot(5).rc_time(1)
 
     # make a "log-scale" graph by

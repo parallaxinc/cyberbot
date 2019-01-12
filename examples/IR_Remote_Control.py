@@ -1,10 +1,12 @@
 ##################################
-# IR Control Robot               #
-# IR detector connected to pin 0 #
+# IR_Remote_Control.py           #
+# IR detector connected to pin 2 #
 ##################################
 
+from parallax import *
+
 while True:
-    num = bot(0).tv_remote()
+    num = bot(2).tv_remote()
     
     if num == 2:
         bot(18).servo_speed(75)
