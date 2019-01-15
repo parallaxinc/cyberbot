@@ -17,3 +17,4 @@ v = ad4 * (3.3 - 0.090) / 1024    # Convert to volts
 v = v * (64.9 / 10.0)   
 
 print("Batery volage: %f" % v)
+display.show("Bat V: %2f" % v)
