@@ -8,9 +8,12 @@ display.on()
 
 print('ad4 = %d' % ad4)
 
-v = ad4 * 3.246 / 1024    # Convert to volts
+# The miro:bit supply has a low voltage diode for protection, 
+# so it's A/D supply is 3.3 V - diode drop.
+v = ad4 * (3.3 - 0.090) / 1024    # Convert to volts
 
-# Undo down-scaling that circuit on board performs for safe measurements over 3.3 V
+# Undo down-scaling that circuit on board performs for safe 
+# measurements over 3.3 V
 v = v * (64.9 / 10.0)   
 
 print("Batery volage: %f" % v)
