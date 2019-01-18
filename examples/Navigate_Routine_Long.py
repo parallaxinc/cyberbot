@@ -8,8 +8,8 @@ from parallax import *
 
 bot(22).frequency_out(500, 1000)
 
-directions = 'LRFLRSFBLRSBFBLRSFBLRSBFFBLRSFBLRSB'
-durations =  [.5,.5,1,.5,.5,3,3,2,.5,.5,1,2,3,1,.5,.5,3,3,2,.5,.5,1,2,3,1,2,.5,.5,3,3,2,.5,.5,1,2]
+directions = 'LRFLRSFBLRSBFBLRSFBLRSBFFBLRSFBLRS'
+durations =  [.5,.5,1,.5,.5,3,3,2,.5,.5,1,2,3,1,.5,.5,3,3,2,.5,.5,1,2,3,1,2,.5,.5,3,3,2,.5,.5,1]
 
 for direction, duration in zip(directions, durations):
     if direction == 'F':
