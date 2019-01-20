@@ -6,36 +6,29 @@ bot(22).frequency_out(500, 1000)
 
 while True:
 
-    # read the phototransistors
-    pL = bot(11).rc_time(1)
-    pR = bot(5).rc_time(1)
+    # read the phototransistors, qt stands for charge time
+    bot(5).digital_write(1)
+    bot(11).digital_write(1)
+    qtR = bot(5).rc_time(1)
+    qtL = bot(11).rc_time(1)
 
-    # make a "log-scale" graph by
-    # turning the sensor readings into 
-    # strings and counting the digits
-    gL = 4 - len(str(pL * 4))
-    gR = 4 - len(str(pR * 4))
-    
-    for y in range(0,4):
-        if y <= gL:
-            display.set_pixel(4, y, 9)
-        else:
-            display.set_pixel(4, y, 0)
-        if y <= gR:
-            display.set_pixel(0, y, 9)
-        else:
-            display.set_pixel(0, y, 0)
+    # Make one normalized differential measurement
+    # from R/L sensor measurements.
+    nDiff = (200 * qtR) / (qtR + qtL + 1) - 100
 
-    # set the wheel speed variables according
-    # to the normalized differential
-    nDiff = round((200 * pR) / (pR + pL + 1) - 100)
+    # Optionally scale nDiff for sharper turn repsonses.
+    nDiff = (nDiff * 4) / 2
+    print("qtL = %d, qtR = %d, nDiff = %d" % (qtL, qtR, nDiff))
 
+    # Set wheel speeds according to nDiff
+    # Omega looks like a lower-case w and is used in rotational
+    # velocity calculations.
     if nDiff > 0:
         wL = 64 - nDiff
         wR = -64
     else:
         wL = 64
         wR = -64 - nDiff
-    
+
     bot(18).servo_speed(wL)
     bot(19).servo_speed(wR)
