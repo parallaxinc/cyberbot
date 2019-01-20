@@ -6,7 +6,7 @@ bot(22).frequency_out(500, 1000)
 
 while True:
 
-    # read the phototransistors, qt stands for charge time
+    # Read the phototransistors, qt stands for charge time
     bot(5).digital_write(1)
     bot(11).digital_write(1)
     qtR = bot(5).rc_time(1)
@@ -16,9 +16,11 @@ while True:
     # from R/L sensor measurements.
     nDiff = (200 * qtR) / (qtR + qtL + 1) - 100
 
-    # Optionally scale nDiff for sharper turn repsonses.
+    # Optionally scale nDiff for sharper turn responses.
     nDiff = (nDiff * 4) / 2
-    print("qtL = %d, qtR = %d, nDiff = %d" % (qtL, qtR, nDiff))
+    
+	# print("qtL = %d, qtR = %d, nDiff = %d" % (qtL, qtR, nDiff))
+	# sleep(1000)
 
     # Set wheel speeds according to nDiff
     # Omega looks like a lower-case w and is used in rotational
