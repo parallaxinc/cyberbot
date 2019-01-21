@@ -10,8 +10,8 @@ bot(22).frequency_out(500, 1000)
 while True:
 
     # read the QTI sensors  bot(end pin).qti(start pin)
-    q = bot(6).qti(3)
-    
+    q = bot(7).qti(4)
+
     # bin = "{0:b}".format(q)
     # print('q = %s' % bin)
     # sleep(1000)
