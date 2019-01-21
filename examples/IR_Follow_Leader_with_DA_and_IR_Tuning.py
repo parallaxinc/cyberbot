@@ -3,7 +3,7 @@
 from parallax import *
 
 # Correct IR sensor mismatch by increasing the dim on the side where
-# the lights go out later as the obstacle gets closer. (0...500)
+# the lights go out sooner as the obstacle gets closer. (0...500)
 dimL     = 0
 dimR     = 0
 
