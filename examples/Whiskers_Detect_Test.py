@@ -2,6 +2,8 @@
 
 from parallax import *
 
+bot(22).frequency_out(300, 2000)
+
 while True:
     leftWhisker = bot(7).digital_read()
     rightWhisker = bot(9).digital_read()

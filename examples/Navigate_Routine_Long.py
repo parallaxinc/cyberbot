@@ -6,10 +6,10 @@
 
 from parallax import *
 
-bot(22).frequency_out(500, 1000)
+bot(22).frequency_out(300, 2000)
 
-directions = 'LRFLRSFBLRSBFBLRSFBLRSBFFBLRSFBLRS'
-durations =  [.5,.5,1,.5,.5,3,3,2,.5,.5,1,2,3,1,.5,.5,3,3,2,.5,.5,1,2,3,1,2,.5,.5,3,3,2,.5,.5,1]
+directions = 'LRFLRSFBLRSBFBLRSFBLRSBFFBLRSFBLRSL'
+durations =  [.5,.5,1,.5,.5,3,3,2,.5,.5,1,2,3,1,.5,.5,3,3,2,.5,.5,1,2,3,1,2,.5,.5,3,3,2,.5,.5,1.5]
 
 for direction, duration in zip(directions, durations):
     if direction == 'F':

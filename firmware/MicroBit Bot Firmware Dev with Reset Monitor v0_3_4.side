@@ -1,4 +1,4 @@
-MicroBit Bot Firmware Dev with Reset Monitor v0_3_2.c
+MicroBit Bot Firmware Dev with Reset Monitor v0_3_4.c
 >compiler=C
 >memtype=cmm main ram compact
 >optimize=-Os

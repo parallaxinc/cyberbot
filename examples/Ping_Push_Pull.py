@@ -2,10 +2,10 @@
 
 from parallax import *
 
-bot(22).frequency_out(500, 1000)
-
 setPoint = 32
 kP = -7
+
+bot(22).frequency_out(300, 2000)
 
 while True:
     distance = bot(8).ping_distance(u="cm")

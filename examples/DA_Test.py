@@ -1,9 +1,10 @@
 # DA_Test.py
 
-# Procedure
-#   Twist pot input while program runs to see ad2 vary
+# Procedure: Observe D/A0 and D/A1 output lights
 
 from parallax import *
+
+bot(22).frequency_out(300, 2000)
 
 while True:
     for da in range(0, 1025, 64):

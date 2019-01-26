@@ -5,9 +5,11 @@
 
 from parallax import *
 
+bot(22).frequency_out(300, 2000)
+
 while True:
     num = bot(2).tv_remote()
-    
+
     if num == 2:
         bot(18).servo_speed(75)
         bot(19).servo_speed(-75)
@@ -28,4 +30,3 @@ while True:
         bot(18).servo_speed(-75)
         bot(19).servo_speed(75)
         display.show(Image.ARROW_N)
-        

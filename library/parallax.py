@@ -1,15 +1,16 @@
+# v_0_3_4
 from microbit import *
 while True:
-    try:i2c.read(93,1)
-    except OSError:pass
-    else:
-        i2c.write(93,b'\0c');sleep(10)	 
-        pin8.write_digital(1);sleep(10)	 
-        while True:
-            try:i2c.read(93,1)
-            except OSError:pass
-            else:break
-        break
+	try:i2c.read(93,1)
+	except OSError:pass
+	else:
+		pin8.set_pull(pin8.PULL_UP)	
+		i2c.write(93,b'\0c');sleep(10)	
+		while True:
+			try:i2c.read(93,1)
+			except OSError:pass
+			else:break
+		break
 class bot():
 	def __init__(self,p=0):
 		self.pin=p

@@ -5,7 +5,7 @@ from parallax import *
 wL = 0
 wR = 0
 
-bot(22).frequency_out(500, 1000)
+bot(22).frequency_out(300, 2000)
 
 while True:
 

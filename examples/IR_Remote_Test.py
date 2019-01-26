@@ -5,6 +5,8 @@
 
 from parallax import *
 
+bot(22).frequency_out(300, 2000)
+
 while True:
     num = bot(2).tv_remote()
     if num < 1000:

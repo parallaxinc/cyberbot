@@ -2,10 +2,12 @@
 
 from parallax import *
 
+bot(22).frequency_out(300, 2000)
+
 while True:
     left = bot(7).digital_read()
     right = bot(9).digital_read()
-    
+
     if left == 1 and right == 1: #Go forward
         bot(18).servo_speed(75)
         bot(19).servo_speed(-75)

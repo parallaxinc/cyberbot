@@ -1,5 +1,5 @@
 /*
-  MicroBit Bot Firmware Dev with Reset Monitor v0_3_1.c
+  MicroBit Bot Firmware Dev with Reset Monitor v0_3_4.c
   
   3/7/19
   This is a development version of the 0.3 firmware that uses circuits connected
@@ -154,6 +154,7 @@ int main()
     while(!command) {
       command = i2cslave_getReg(mbBusS, COMMAND);
     }
+    input(23);
     int pin1 = reg[PIN1];
     int pin2 = reg[PIN2];
     if (pin2 == 33) pin2 = -1;
@@ -321,6 +322,7 @@ int main()
 
 void resetMonitor() 
 {
+  //high(21);
   pause(100);
   low(PWR_LED_WARN);
   
@@ -339,6 +341,8 @@ void resetMonitor()
   
   while(1) 
   {
+    //high(21);
+    
     if( running_flag && !input(23) ) 
     {
       reboot();
