@@ -20,10 +20,9 @@ while True:
     except OSError:
         pass
     else:
+		pin8.set_pull(pin8.PULL_UP)
         i2c.write(0x53, b'\0c')
         sleep(10)     # CRITICAL - do not adjust    
-        pin8.write_digital(1)
-        sleep(10)     # CRITICAL - do not adjust
         while True:
             try:
                 i2c.read(0x53, 1)
@@ -31,21 +30,20 @@ while True:
                 pass
             else:
                 break
-        break
-
 class bot():
 
-    def __init__(self, p):
+    def __init__(self, p=0):
         self.pin = p
 
-    # Send data to the Propeller via i2c
+	# parallax_serv.py
+	# Send data to the Propeller via i2c
     #   self - allows self.pin and 0x53 to be retrieved
     #   c - command code, defined as constants in cyberbot firmware
     #   p - optional|pin 2 (usually start pin, pin 1 is end pin)
     #   s - optional|state/direction (bit for 1 pin or byte for multiple pins)
     #   d - optional|argument 1
     #   f - optional|argument 2
-    def send_c(self, c, p=0, s=0, d=None, f=None):
+    def send_c(self, c, p=33, s=0, d=None, f=None):
         a = bytes([1, self.pin, p, s])
         if d is not None:
             a = a + d.to_bytes(4, 'little')
