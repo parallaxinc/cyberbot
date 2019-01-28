@@ -1,10 +1,34 @@
 from parallax import *
+from tv_remote import *
 
 # Adding this made the code too large.
 bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
+bot(22).frequency_out(300, 2000)
 
 while True:
-    num = bot(2).tv_remote()
+    num = ir(2).remote()
     # Forward on button press 1
     if num == 1:
         bot(18).servo_speed(0)

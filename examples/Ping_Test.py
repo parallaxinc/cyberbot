@@ -3,12 +3,12 @@
 ##################################
 
 from parallax import *
+from ping import *
 
 bot(22).frequency_out(300, 2000)
 
 while True:
-    dist = bot(8).ping_distance(u="cm")
-    print('dist = %d' % dist)
-    display.scroll(str(dist), 125)
-    display.scroll(str(dist), 125)
+    distance = ping(8).distance(u="cm")
+    print('dist = %d' % distance)
+    display.scroll(str(distance), 125)
     sleep(750)

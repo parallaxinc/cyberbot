@@ -8,8 +8,13 @@ from parallax import *
 
 bot(22).frequency_out(300, 2000)
 
-directions = 'LRFLRSFBLRSBFBLRSFBLRSBFFBLRSFBLRSL'
-durations =  [.5,.5,1,.5,.5,3,3,2,.5,.5,1,2,3,1,.5,.5,3,3,2,.5,.5,1,2,3,1,2,.5,.5,3,3,2,.5,.5,1.5]
+# 96 if you leave it connected.
+# directions = 'FBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRF'
+# durations =  [3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5]
+
+# 95 if you disconnect and restart.
+directions = 'FBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLR'
+durations =  [3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5]
 
 for direction, duration in zip(directions, durations):
     if direction == 'F':
@@ -36,3 +41,5 @@ bot(18).servo_disable()
 bot(19).servo_disable()
 
 bot(22).frequency_out(500, 2000)
+
+bot().disconnect()

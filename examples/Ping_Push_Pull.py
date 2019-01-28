@@ -1,6 +1,7 @@
 # Ping_Push_Pull.py
 
 from parallax import *
+from ping import *
 
 setPoint = 32
 kP = -7
@@ -8,11 +9,11 @@ kP = -7
 bot(22).frequency_out(300, 2000)
 
 while True:
-    distance = bot(8).ping_distance(u="cm")
-    
+    distance = ping(8).distance(u="cm")
+
     errorVal = setPoint - distance
     speed = kP * errorVal
-    
+
     if speed > 0:
         display.show(Image("00000:"
             "00000:"

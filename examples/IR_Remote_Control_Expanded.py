@@ -4,14 +4,17 @@
 ##################################
 
 from parallax import *
+from tv_remote import *
+
+bot(22).frequency_out(300, 2000)
 
 while True:
-    num = bot(2).tv_remote()
+    num = ir(2).remote()
     # Forward on button press 1
     if num == 1:
         bot(18).servo_speed(0)
         bot(19).servo_speed(-75)
-        display.show(Image.ARROW_SE)    
+        display.show(Image.ARROW_SE)
     elif num == 2:
         bot(18).servo_speed(75)
         bot(19).servo_speed(-75)
@@ -19,7 +22,7 @@ while True:
     elif num == 3:
         bot(18).servo_speed(75)
         bot(19).servo_speed(0)
-        display.show(Image.ARROW_SW)    
+        display.show(Image.ARROW_SW)
     elif num == 4:
         bot(18).servo_speed(-75)
         bot(19).servo_speed(-75)

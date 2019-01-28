@@ -11,3 +11,5 @@ sleep(10000)
 
 bot(18).servo_speed(0)
 bot(19).servo_speed(0)
+
+bot().disconnect()

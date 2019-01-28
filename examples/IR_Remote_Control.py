@@ -4,11 +4,12 @@
 ##################################
 
 from parallax import *
+from tv_remote import *
 
 bot(22).frequency_out(300, 2000)
 
 while True:
-    num = bot(2).tv_remote()
+    num = ir(2).remote()
 
     if num == 2:
         bot(18).servo_speed(75)

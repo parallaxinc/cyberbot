@@ -20,3 +20,5 @@ v = v * (64.9 / 10.0)
 
 print("Batery voltage: %f" % v)
 display.show("Bat V: %2f" % v)
+
+bot().disconnect()

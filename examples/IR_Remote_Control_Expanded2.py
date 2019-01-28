@@ -2,6 +2,7 @@
 # Code adjusted to make room for frequency_out.
 
 from parallax import *
+from tv_remote import *
 
 speedL = 0
 speedR = 0
@@ -10,7 +11,7 @@ img = Image.HAPPY
 bot(22).frequency_out(300, 2000)
 
 while True:
-    num = bot(2).tv_remote()
+    num = ir(2).remote()
 
     if num == 1:
         speedL=0

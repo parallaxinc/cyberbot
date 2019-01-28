@@ -1,6 +1,7 @@
 # QTI_Follow_Line.py
 
 from parallax import *
+from qti import *
 
 wL = 0
 wR = 0
@@ -10,7 +11,7 @@ bot(22).frequency_out(300, 2000)
 while True:
 
     # read the QTI sensors  bot(end pin).qti(start pin)
-    q = bot(7).qti(4)
+    q = qti(7).read_to(4)
 
     # bin = "{0:b}".format(q)
     # print('q = %s' % bin)
