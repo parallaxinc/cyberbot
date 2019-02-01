@@ -18,6 +18,7 @@ while True:
         bot(18).servo_speed(-75)    #back up for 1s, turn left
         bot(19).servo_speed(75)
         display.show(Image.ARROW_N)
+        bot(15).write_digital(0)
         bot(0).write_digital(1)
         sleep(1000)
         bot(18).servo_speed(-75)
@@ -29,6 +30,7 @@ while True:
         bot(19).servo_speed(75)
         display.show(Image.ARROW_N)
         bot(15).write_digital(1)
+        bot(0).write_digital(0)
         sleep(1000)
         bot(18).servo_speed(75)
         bot(19).servo_speed(75)
@@ -45,6 +47,3 @@ while True:
         bot(19).servo_speed(75)
         display.show(Image.ARROW_W)
         sleep(1000)
-
-    bot(15).write_digital(0)
-    bot(0).write_digital(0)

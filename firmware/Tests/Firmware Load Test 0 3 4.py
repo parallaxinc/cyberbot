@@ -37,7 +37,7 @@ while True:
     if (v < 5.0) or (v > 9.0):
         bot(25).digital_write(1)
 
-    print("Batery voltage: %f" % v)
+    print("Battery voltage: %f" % v)
     # display.show("Bat V: %2f" % v)
 
     bot(22).digital_read()

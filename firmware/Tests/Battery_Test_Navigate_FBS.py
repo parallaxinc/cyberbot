@@ -18,7 +18,7 @@ v = ad4 * (3.3 - 0.090) / 1024    # Convert to volts
 # measurements over 3.3 V
 v = v * (64.9 / 10.0)
 
-print("Batery voltage: %f" % v)
+print("Battery voltage: %f" % v)
 display.show("Bat V: %2f" % v)
 
 sleep(100)
