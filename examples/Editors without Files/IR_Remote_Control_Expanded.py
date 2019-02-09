@@ -1,30 +1,18 @@
+##################################
+# Parallax / NICERC Cyber:bot    #
+# Infrared Remote Control        #
+##################################
+
+# Setup
+#
+#   o  Open cyberbot.py from: 
+#	     Parallax Library (Editors without Files)
+#   o  Copy all of it and paste over from cyberbot import * 
+#	o  Open tv_remote.py from the same folder and paste it over from tv_remote import *
+
 from cyberbot import *
 from tv_remote import *
 
-# Adding this made the code too large.
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
-bot(22).pitch(300, 2000)
 bot(22).pitch(300, 2000)
 
 while True:

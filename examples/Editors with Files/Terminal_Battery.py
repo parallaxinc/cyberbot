@@ -1,4 +1,10 @@
-# Navigate_FBS.py
+# Battery_Test.py
+
+# Setup
+#
+#   If your editor has a Files feature, use it to copy all .py files from:  
+#	  Parallax Library (Editors with Files) 
+#   to your micro:bit module's file system.
 
 from cyberbot import *
 
@@ -16,20 +22,9 @@ v = ad4 * (3.3 - 0.090) / 1024    # Convert to volts
 
 # Undo down-scaling that circuit on board performs for safe
 # measurements over 3.3 V
-v = v * (64.9 / 10.0)
+v = v * (65.4 / 10.5)
 
 print("Battery voltage: %f" % v)
 display.show("Bat V: %2f" % v)
-
-sleep(100)
-
-bot(18).servo_speed(120)
-bot(19).servo_speed(-120)
-sleep(700)
-bot(18).servo_speed(-120)
-bot(19).servo_speed(120)
-sleep(700)
-bot(18).servo_speed(0)
-bot(19).servo_speed(0)
 
 bot().disconnect()

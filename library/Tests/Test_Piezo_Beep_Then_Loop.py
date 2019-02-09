@@ -1,9 +1,9 @@
 # Test_Piezo_Beep_Then_Loop.py
 
-from parallax import *
+from cyberbot import *
 
-bot(22).frequency_out(300, 2000)
+bot(22).pitch(300, 2000)
 
 while True:
-    bot(21).digital_write(1)
-    bot(21).digital_write(0)
+    bot(21).write_digital(1)
+    bot(21).write_digital(0)
