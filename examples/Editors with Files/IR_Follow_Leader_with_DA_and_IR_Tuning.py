@@ -2,12 +2,12 @@
 
 # Setup
 #
-#   If your editor has a Files feature, use it to copy all .py files from:  
-#	  Parallax Library (Editors with Files) 
+#   If your editor has a Files feature, use it to copy all .py files from:
+#	  Parallax Library (Editors with Files)
 #   to your micro:bit module's file system.
 
 # Tuning
-# 
+#
 # Servos need to be well centered, and IR LEDs and
 # receivers need to be pointed straight forward.  Also, don't
 # for get to use D/A0 for the P14 IR LED's cathod, and D/A1 for
@@ -17,7 +17,6 @@
 # side with the dimL/R variable to increase.  Keep adjusting
 # till the LED lights disappear at almost the same rate as
 # you move the flat object toward the front of the cyber:bot.
-
 
 from cyberbot import *
 

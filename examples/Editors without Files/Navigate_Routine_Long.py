@@ -14,13 +14,9 @@ from cyberbot import *
 
 bot(22).pitch(300, 2000)
 
-# 96 if you leave it connected.
-# directions = 'FBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRF'
-# durations =  [3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5]
-
-# 95 if you disconnect and restart.
-directions = 'FBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLR'
-durations =  [3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5]
+# 130 maneuvers.
+directions = 'FBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFLRSFBLRSLRFBLRSLRFLRSFBLRSLRFBLRSLRFLRSFBLRSLR'
+durations =  [3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5,.5,.5,1.5,.5,1,.5,.5,.5,3,3,2,.5,.5,1.5,.5,1,.5,.5]
 
 for direction, duration in zip(directions, durations):
     if direction == 'F':

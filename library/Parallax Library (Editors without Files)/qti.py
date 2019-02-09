@@ -1,4 +1,4 @@
-# qti.py v_0_3_8
+# qti.py v_0_3_9
 # Replace  from qti import *  with this:
 
 class qti():
@@ -7,5 +7,5 @@ class qti():
 	def read_to(self,p,d=None):
 		if p>self.pin:raise ValueError('start > end!')
 		else:
-			send_c(self.pin,33,p,0,d)
-			return read_r()
+			bot(self.pin).send_c(33,p,0,d)
+			return bot().read_r()
