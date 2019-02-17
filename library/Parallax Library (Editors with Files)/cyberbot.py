@@ -67,9 +67,6 @@ class bot():
 		else:self.send_c(25,self.pin+1,0,v,d)
 	def servo_accelerate(self,a):self.send_c(27,0,0,a)
 	def servo_disable(self):self.send_c(28)
-	def version_info(self):
-		self.send_c(98)
-		return self.read_r()
 	def disconnect(self):
 		while True:
 			bot(25).read_digital()
