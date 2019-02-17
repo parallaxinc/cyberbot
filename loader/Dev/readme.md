@@ -1,0 +1,1 @@
+This folder contains Python file(s) that enable the micro:bit to update the cyber:bot's Propeller firmware in field (by the user).
