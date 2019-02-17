@@ -1,10 +1,10 @@
-# cyberbot.py v_0_3_9
+# cyberbot.py v_0_3_12
 from microbit import *
 while True:
 	try:i2c.read(93,1)
 	except OSError:pass
 	else:
-		sleep(10);pin8.set_pull(pin8.PULL_UP)	
+		pin8.set_pull(pin8.PULL_UP);sleep(10)	
 		i2c.write(93,b'\0c');sleep(10)	
 		while True:
 			try:i2c.read(93,1)
@@ -16,7 +16,7 @@ class bot():
 		self.pin=p
 	def botdisable(self):
 		pin8.set_pull(pin8.NO_PULL)
-		sleep(100)
+		sleep(200)
 		reset()
 	def send_c(self,c,p=33,s=0,d=None,f=None):
 		a=bytes([1,self.pin,p,s])
@@ -65,7 +65,11 @@ class bot():
 	def servo_speed(self,v,d=None):
 		if d is None:self.send_c(25,33,0,v,d)
 		else:self.send_c(25,self.pin+1,0,v,d)
+	def servo_accelerate(self,a):self.send_c(27,0,0,a)
 	def servo_disable(self):self.send_c(28)
+	def version_info(self):
+		self.send_c(98)
+		return self.read_r()
 	def disconnect(self):
 		while True:
 			bot(25).read_digital()
