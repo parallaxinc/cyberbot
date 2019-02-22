@@ -1,10 +1,4 @@
-# DA_Test.py
-
-# Setup
-#
-#   If your editor has a Files feature, use it to copy all .py files from:
-#	  Parallax Library (Editors with Files)
-#   to your micro:bit module's file system.
+# Terminal_DA_AD.py
 
 # Circuit
 #   D/A0---A/D0, D/A1---A/D1,
@@ -42,18 +36,18 @@ from cyberbot import *
 bot(22).pitch(300, 2000)
 
 while True:
-    for da in range(0, 1024, 64):
+	for da in range(0, 1024, 64):
 
-        bot(20).write_analog(da)
-        bot(21).write_analog(1024 - da)
-        sleep(20)
+		bot(20).write_analog(da)
+		bot(21).write_analog(1024 - da)
+		sleep(20)
 
-        ad0 = pin0.read_analog()
-        ad1 = pin1.read_analog()
-        ad2 = pin2.read_analog()
+		ad0 = pin0.read_analog()
+		ad1 = pin1.read_analog()
+		ad2 = pin2.read_analog()
 
-        print("da0 = %d, da1 = %d, ad0 = %d, ad1 = %d, ad2 = %d" % (da, 1024 - da, ad0, ad1, ad2))
-        sleep(150)
+		print("da0 = %d, da1 = %d, ad0 = %d, ad1 = %d, ad2 = %d" % (da, 1024 - da, ad0, ad1, ad2))
+		sleep(150)
 
-    print(" ")
-    sleep(500)
+	print(" ")
+	sleep(500)

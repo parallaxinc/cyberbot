@@ -1,10 +1,4 @@
-# Battery_Test.py
-
-# Setup
-#
-#   If your editor has a Files feature, use it to copy all .py files from:  
-#	  Parallax Library (Editors with Files) 
-#   to your micro:bit module's file system.
+# Terminal_Battery.py
 
 from cyberbot import *
 
@@ -18,7 +12,7 @@ print('ad4 = %d' % ad4)
 
 # The miro:bit supply has a low voltage diode for protection,
 # so it's A/D supply is 3.3 V - diode drop.
-v = ad4 * (3.3 - 0.090) / 1024    # Convert to volts
+v = ad4 * (3.3 - 0.090) / 1024	# Convert to volts
 
 # Undo down-scaling that circuit on board performs for safe
 # measurements over 3.3 V

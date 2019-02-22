@@ -76,11 +76,11 @@ class io():
 		else:bot(self.pin).send_c(5,p,d)
 
 def fail(code):
-    bot(25).write_digital(1)
-    display.show(code)
-    x = 0
-    while True:
-        x = x + 1
+	bot(25).write_digital(1)
+	display.show(code)
+	x = 0
+	while True:
+		x = x + 1
 
 
 n = bot().version_info()
@@ -145,12 +145,12 @@ if x != 1:fail(11)
 f = 500
 
 while True:
-    bot(20).write_digital(1)
-    bot(22).pitch(100, f)
-    sleep(200)
-    bot(20).write_digital(0)
-    bot(21).write_digital(1)
-    sleep(300)
-    bot(21).write_digital(0)
-    f = f + 500
-    if f > 3000: f = 500
+	bot(20).write_digital(1)
+	bot(22).pitch(100, f)
+	sleep(200)
+	bot(20).write_digital(0)
+	bot(21).write_digital(1)
+	sleep(300)
+	bot(21).write_digital(0)
+	f = f + 500
+	if f > 3000: f = 500

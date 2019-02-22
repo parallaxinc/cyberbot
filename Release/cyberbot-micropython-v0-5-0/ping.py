@@ -1,4 +1,4 @@
-# ping.py v_0_3_9
+# ping.py  v_0_5_0
 from cyberbot import *
 class ping():
 	def __init__(self,p=33):

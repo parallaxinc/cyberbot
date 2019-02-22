@@ -1,4 +1,4 @@
-# cyberbot.py v_0_4_0
+# cyberbot.py  v_0_5_0
 from microbit import *
 while True:
 	try:i2c.read(93,1)

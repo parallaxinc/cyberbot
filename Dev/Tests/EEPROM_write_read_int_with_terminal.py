@@ -1,16 +1,16 @@
 from microbit import *
 
 def repl_get_val():
-    c = None
-    val = b''
-    while True:
-        c = uart.read() 
-        if c is not None:
-            if c == b'\r': 
-                break
-            val += c
-            c = None
-    return int(val)
+	c = None
+	val = b''
+	while True:
+		c = uart.read() 
+		if c is not None:
+			if c == b'\r': 
+				break
+			val += c
+			c = None
+	return int(val)
 
 print('Enter memory address >= 32768: ')
 mem_addr = repl_get_val()

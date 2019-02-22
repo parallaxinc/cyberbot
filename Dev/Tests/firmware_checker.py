@@ -5,7 +5,7 @@ class firmware():
 		bot().send_c(98)
 		self.v=bot().read_r()
 	def version_info(self):
-        #v=self.v
+		#v=self.v
 		p=self.v%100
 		mi=((self.v%10000)-p)/100
 		ma=((self.v%1000000)-mi-p)/10000

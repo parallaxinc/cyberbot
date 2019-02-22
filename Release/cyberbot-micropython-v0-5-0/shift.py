@@ -1,4 +1,4 @@
-# shift.py v_0_3_9
+# shift.py v_0_5_0
 from cyberbot import *
 class shift():
 	def __init__(self,p=33,q=33):

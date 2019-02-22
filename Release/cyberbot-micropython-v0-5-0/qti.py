@@ -1,4 +1,4 @@
-# qti.py v_0_4_0
+# qti.py  v_0_5_0
 from cyberbot import *
 class qti():
 	def __init__(self,p=0,q=33):

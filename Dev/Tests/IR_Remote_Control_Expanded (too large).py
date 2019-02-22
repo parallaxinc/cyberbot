@@ -1,8 +1,30 @@
-# IR_Remote_Control_Expanded.py
-
 from cyberbot import *
 from tv_remote import *
 
+# Adding this made the code too large.
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
+bot(22).pitch(300, 2000)
 bot(22).pitch(300, 2000)
 
 while True:
@@ -25,8 +47,10 @@ while True:
 		bot(19).servo_speed(-75)
 		display.show(Image.ARROW_E)
 	elif num == 5:
-		bot(18).servo_speed(0)
-		bot(19).servo_speed(0)
+		#bot(18).servo_speed(0)
+		#bot(19).servo_speed(0)
+		bot(18).servo_disable()
+		bot(19).servo_disable()
 		display.show(Image.HAPPY)
 	elif num == 6:
 		bot(18).servo_speed(75)
