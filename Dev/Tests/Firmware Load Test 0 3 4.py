@@ -4,7 +4,7 @@ from cyberbot import *
 
 while True:
 
-	bot(22).pitch(300, 2000)
+	bot(22).tone(2000, 300)
 
 	display.off()
 	ad4 = pin4.read_analog()

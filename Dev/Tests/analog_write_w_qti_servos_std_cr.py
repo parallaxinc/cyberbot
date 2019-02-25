@@ -1,11 +1,5 @@
  # analog_write_w_qti_servos_std_cr.py
 
-# Setup
-#
-#   If your editor has a Files feature, use it to copy all .py files from:
-#	  Parallax Library (Editors with Files)
-#   to your micro:bit module's file system.
-
 from cyberbot import *
 from qti import *
 
@@ -30,7 +24,7 @@ from qti import *
 #bot(17).servo_disable()
 
 while True:
-	bot(22).pitch(300, 1000)
+	bot(22).tone(1000, 300)
 	#sleep(1000)
 
 	bot(20).write_analog(100)
@@ -58,7 +52,7 @@ while True:
 	#bot(9).write_analog(-1)
 	#bot(9).write_analog(-1)
 
-	bot(22).pitch(300, 1500)
+	bot(22).tone(1500, 300)
 	sleep(1000)
 
 	for n in range(0, 1025, 128):
@@ -67,7 +61,7 @@ while True:
 		print('n=%d' %n)
 		sleep(500)
 
-	bot(22).pitch(300, 2000)
+	bot(22).tone(2000, 300)
 	sleep(750)
 
 	bot(0).write_analog(-1)
@@ -99,7 +93,7 @@ while True:
 	bot(7).write_analog(-1)
 	sleep(1000)
 
-	bot(22).pitch(300, 2500)
+	bot(22).tone(2500, 300)
 	sleep(750)
 
 	bot(0).write_analog(128)
@@ -113,6 +107,6 @@ while True:
 	sleep(1000)
 	qti(5,0).read()
 
-	bot(22).pitch(300, 3000)
+	bot(22).tone(3000, 300)
 
 	sleep(1000)

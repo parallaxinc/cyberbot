@@ -5,7 +5,7 @@ from group_io import *
 
 while True:
 
-	bot(22).pitch(300, 1000)
+	bot(22).tone(1000, 300)
 
 	io(9,6).directions(15)
 	sleep(1000)
@@ -18,7 +18,7 @@ while True:
 		print("states = %d" % states)
 		sleep(300)
 
-	bot(22).pitch(300, 1500)
+	bot(22).tone(1500, 300)
 
 	io(9,6).states(3)
 
@@ -30,7 +30,7 @@ while True:
 		print("states = %d" % states)
 		sleep(300)
 
-	bot(22).pitch(300, 2000)
+	bot(22).tone(2000, 300)
 
 	io(9,6).states(12)
 	io(9,6).directions(12)
@@ -45,7 +45,7 @@ while True:
 		sleep(400)
 
 	io(9,8).states(0)
-	bot(22).pitch(300, 2500)
+	bot(22).tone(2500, 300)
 
 	bot(7).write_analog(512)
 	bot(8).write_analog(512)
@@ -54,4 +54,4 @@ while True:
 	#io(9,6).directions(15)
 	sleep(1000)
 
-#bot().disconnect()
+#bot().detach()

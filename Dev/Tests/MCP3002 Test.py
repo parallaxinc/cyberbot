@@ -12,8 +12,8 @@ def mcp3002_read(cs, clk, dout, din, channel, singleEnded, msbf):
 	cmd |= (channel << 1)
 	cmd |= (msbf << 0)
 	bot(cs).write_digital(0)
-	shift(din,clk).send(msbf, 5, cmd)
-	result = shift(dout,clk).receive(orderIn, 10)
+	shift(clk, din).tx(msbf, 5, cmd)
+	result = shift(clk, dout).rx(orderIn, 10)
 	bot(cs).write_digital(1)
 	return result
 

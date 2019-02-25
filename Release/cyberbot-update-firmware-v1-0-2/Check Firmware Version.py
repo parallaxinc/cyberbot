@@ -11,7 +11,7 @@ def version_info():
     print("Firmware: v%d.%d.%d" %(ma, mi, p))
     display.show("Firmware:v%d.%d.%d" %(ma, mi, p))
 
-bot(22).pitch(200, 2000)
+bot(22).tone(200, 2000)
 version_info()
 
-bot().disconnect()
+bot().detach()

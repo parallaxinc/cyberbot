@@ -1,14 +1,8 @@
 # digital_write_read.py
 
-# Setup
-#
-#   If your editor has a Files feature, use it to copy all .py files from:
-#	  Parallax Library (Editors with Files)
-#   to your micro:bit module's file system.
-
 from cyberbot import *
 
-bot(22).pitch(300, 2000)
+bot(22).tone(2000, 300)
 
 while True:
 
@@ -36,4 +30,4 @@ while True:
 		# p15 = bot(15).read_digital()
 		sleep(500)
 		print("p0:%d,p7:%d,p9:%d,p15:%d" % (p0,p7,p9,p15))
-		bot(22).pitch(100, 2000)
+		bot(22).tone(100, 2000)

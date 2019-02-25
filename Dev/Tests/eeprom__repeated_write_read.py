@@ -8,7 +8,7 @@ ee_mem_addr = b'\x00\x80'
 data = b'Abcdef1\r'
 packet = ee_mem_addr + data
 
-bot(22).pitch(200, 2000)
+bot(22).tone(2000, 200)
 
 # bot().send_c(40,0,0,5,4)
 i2c_repeat(5,4).connect()
@@ -32,7 +32,7 @@ while True:
 	data_from_ee = i2c.read(ee_i2c_addr, 8, False)
 	print("data_from_ee (after) = ", data_from_ee)
 
-	# bot(22).pitch(200, 1000)
+	# bot(22).tone(2000, 100)
 	sleep(1000)
 
-bot().disconnect()
+bot().detach()

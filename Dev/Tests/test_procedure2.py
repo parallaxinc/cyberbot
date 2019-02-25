@@ -146,7 +146,7 @@ f = 500
 
 while True:
 	bot(20).write_digital(1)
-	bot(22).pitch(100, f)
+	bot(22)f, 100)
 	sleep(200)
 	bot(20).write_digital(0)
 	bot(21).write_digital(1)

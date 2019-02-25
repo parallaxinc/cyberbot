@@ -2,14 +2,11 @@
 
 from cyberbot import *
 from ping import *
-from ab360 import *
 
-setPoint = 25
+setPoint = 32
 kP = -7
 
 bot(22).tone(2000, 300)
-
-drive.connect()
 
 while True:
 	distance = ping(8).distance('cm')
@@ -32,4 +29,5 @@ while True:
 	else:
 		display.show(Image.DIAMOND)
 
-	drive.speed(speed, speed)
+	bot(18).servo_speed(speed)
+	bot(19).servo_speed(-speed)

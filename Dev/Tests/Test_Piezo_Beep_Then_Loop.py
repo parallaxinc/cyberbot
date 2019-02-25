@@ -2,7 +2,7 @@
 
 from cyberbot import *
 
-bot(22).pitch(300, 2000)
+bot(22).tone(2000, 300)
 
 while True:
 	bot(0).write_digital(1)
