@@ -21,7 +21,7 @@ while True:
 	#qtL = bot(8).rc_time(1)
 
 
-	# Test with IO---220---(potR || C)---5 V
+	# Test with IO---220---(potR || C)---3.3 V
 
 	# Charge to 1/4 of 3.3. V for 2 ms
 	#qtR = bot(5).rc_time(0,2000,256)

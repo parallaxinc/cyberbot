@@ -2,7 +2,7 @@
 
 # Circuit
 #   D/A0---A/D0, D/A1---A/D1,
-#   pot A---5V, potB---GND, pot wiper---A/D2
+#   pot A---3.3V, potB---GND, pot wiper---A/D2
 
 # Procedure
 #   Run, then open REPL and then CTRL + D

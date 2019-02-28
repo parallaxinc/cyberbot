@@ -5,7 +5,7 @@ from i2c_repeat import *
 ee_i2c_addr = 0x54
 # ee_mem_addr = b'\x80\x00'
 ee_mem_addr = b'\x00\x80'
-data = b'Abcdef1\r'
+data = b'ABcdef1\r'
 packet = ee_mem_addr + data
 
 bot(22).tone(2000, 200)
