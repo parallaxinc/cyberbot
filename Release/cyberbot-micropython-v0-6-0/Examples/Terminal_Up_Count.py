@@ -1,5 +1,4 @@
-# Terminal_Display_Up_Count.py
-
+# Terminal_Up_Count.py
 from cyberbot import *
 
 bot(22).tone(2000, 300)
