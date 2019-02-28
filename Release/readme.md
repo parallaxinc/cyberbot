@@ -1,4 +1,4 @@
-This folder contains MicroPython files for running example programs on the cyber:bot.  Used for exercising firmware, library, and as the beginnings of student tutorial code.
+This folder contains public release MicroPython modules and examples for the cyber:bot.  Used for exercising firmware, library, and as the beginnings of student tutorial code.
 
 ## Instructions:
 IMPORTANT! Go to the [library folder](https://github.com/parallaxinc/cyberbot/tree/master/library) and follow the instructions there before using any of these examples!
