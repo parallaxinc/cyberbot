@@ -1,0 +1,56 @@
+extern unsigned int _load_start_i2crepeat_cog[];
+const unsigned int *i2crepeat_cogc = _load_start_i2crepeat_cog;
+
+#include <propeller.h>
+#include "i2crepeat.h"
+
+__attribute__((naked))
+void main(i2crepeat_t *device)
+{
+//  OUTA |= (1<<26);
+//  DIRA |= (1<<26);
+
+  int crmask = device->crmask;
+  int crmaskn = device->crmaskn;
+  OUTA &= crmaskn;
+  //DIRA |= crmask;
+
+  int drmask = device->drmask; 
+  int drmaskn = device->drmaskn; 
+  OUTA &= drmaskn;
+
+  int cmask = device->cmask;
+  int cmaskn = device->cmaskn;
+  OUTA &= cmaskn;
+
+  int dmask = device->dmask; 
+  int dmaskn = device->dmaskn; 
+  OUTA &= dmaskn;
+
+  while(1)
+  {
+    //DIRA |= 1;
+    //if(OUTA & 1) OUTA &= (~1); else OUTA |= 1;
+    if(INA & cmask) DIRA &= crmaskn; else DIRA |= crmask;
+        // low in         // input 
+    if( !(INA & dmask) && !(DIRA & dmask) ) DIRA |= drmask; else DIRA &= drmaskn;
+    if( !(INA & drmask) && !(DIRA & drmask) ) DIRA |= dmask; else DIRA &= dmaskn;
+  } 
+
+}
+
+/*
+
+  // works
+
+  while(1)
+  {
+    //DIRA |= 1;
+    //if(OUTA & 1) OUTA &= (~1); else OUTA |= 1;
+    if(INA & cmask) DIRA &= crmaskn; else DIRA |= crmask;
+        // low in         // input 
+    if( !(INA & dmask) && !(DIRA & dmask) ) DIRA |= drmask; else DIRA &= drmaskn;
+    if( !(INA & drmask) && !(DIRA & drmask) ) DIRA |= dmask; else DIRA &= dmaskn;
+  } 
+
+*/
