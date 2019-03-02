@@ -1,4 +1,4 @@
-# group_io.py  v_0_6_0
+# microbit-module: group_io@0.6.1
 from cyberbot import *
 class io():
 	def __init__(self,p=0,q=33):

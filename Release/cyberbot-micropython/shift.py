@@ -1,4 +1,4 @@
-# shift.py v_0_6_0
+# microbit-module: shift@0.6.1
 from cyberbot import *
 class shift():
 	def __init__(self,p=33,q=33):

@@ -1,6 +1,5 @@
-# i2c_repeat.py  v_0_6_0
+# microbit-module: i2c_repeat@0.6.1
 from cyberbot import *
-
 class i2c_repeat():
 	def __init__(self,p=33,q=33):
 		self.pA=p
