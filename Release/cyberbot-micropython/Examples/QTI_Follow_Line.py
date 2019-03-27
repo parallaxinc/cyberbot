@@ -2,62 +2,56 @@
 
 from cyberbot import *
 from qti import *
+from intbits import *
 
 wL = 0
 wR = 0
 
-bot(22).tone(2000, 300)
+bot(22).tone(500, 1000)
 
 while True:
 
-	# read the QTI sensors  bot(end pin).qti(start pin)
-	q = qti(7,4).read()
+	# Read QTI sensors
+	pattern = qti(7, 4).read()
 
-	# bin = "{0:b}".format(q)
-	# print('q = %s' % bin)
-	# sleep(1000)
-
-	# show the line sensors on the display
-	mask = [1, 2, 4, 8]
+	# Display QTI sensors
 	for x in range(0,4):
-		z = 0
-		if (q & mask[x]) != 0:
-			z = 9
-		for y in range(0,4):
-			display.set_pixel(x, y, z)
+		z = bit.get(pattern, x)
+		for y in range (0,5):
+			display.set_pixel(x, y, z*9)
 
-	# set the wheel speed variables according
-	# to the QTI sensor output
-	if q == 0b1000:
-		wR = 32
-		wL = -16
-	elif q == 0b1100:
-		wR = 32
-		wL = 16
-	elif q == 0b1110:
-		wR = 64
-		wL = 32
-	elif q == 0b0100:
-		wR = 64
-		wL = 64
-	elif q == 0b0110:
-		wR = 64
-		wL = 64
-	elif q == 0b0010:
-		wR = 64
-		wL = 64
-	elif q == 0b0111:
-		wR = 32
-		wL = 64
-	elif q == 0b0011:
-		wR = 16
-		wL = 32
-	elif q == 0b0001:
-		wR = -16
-		wL = 32
-	elif q == 0b0000:
-		wR = 32
-		wL = -32
+	# Calculate speeds to respond to detection patterns
+	if pattern == 0b1000:
+		wL = 10
+		wR = 100
 
+	elif pattern == 0b1100:
+		wL = 30
+		wR = 100
+
+	elif pattern == 0b0100:
+		wL = 60
+		wR = 100
+
+	elif pattern == 0b0110:
+		wL = 100
+		wR = 100
+
+	elif pattern == 0b0010:
+		wL = 100
+		wR = 60
+
+	elif pattern == 0b0011:
+		wL = 100
+		wR = 30
+
+	elif pattern == 0b0001:
+		wL = 100
+		wR = 10
+
+	elif pattern == 0b0000:
+		bot(22).tone(500, 20)
+
+	# Update wheel speeds
 	bot(18).servo_speed(wL)
 	bot(19).servo_speed(-wR)
