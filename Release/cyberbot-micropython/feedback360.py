@@ -1,4 +1,4 @@
-# microbit-module: feedback360@0.5.1
+# microbit-module: feedback360@0.7.0
 from cyberbot import *
 class drive():
 	def __init__(self,p=0):

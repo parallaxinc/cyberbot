@@ -1,4 +1,4 @@
-# microbit-module: qti@0.6.1
+# microbit-module: qti@0.7.0
 from cyberbot import *
 class qti():
 	def __init__(self,p=0,q=33):

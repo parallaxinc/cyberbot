@@ -1,4 +1,4 @@
-# microbit-module: tv_remote@0.6.1
+# microbit-module: tv_remote@0.7.0
 from cyberbot import *
 class ir():
 	def __init__(self,p=0):

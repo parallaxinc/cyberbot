@@ -1,4 +1,4 @@
-# microbit-module: intbits@0.6.1
+# microbit-module: intbits@0.7.0
 class bit():
 	def get(v, i):
 		z = (v >> i) & 1

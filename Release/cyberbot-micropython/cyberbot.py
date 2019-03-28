@@ -1,4 +1,4 @@
-# microbit-module: cyberbot@0.6.1
+# microbit-module: cyberbot@0.7.0
 from microbit import *
 while True:
 	try:i2c.read(93,1)
