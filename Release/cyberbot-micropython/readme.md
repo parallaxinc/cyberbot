@@ -1,4 +1,4 @@
-This folder contains the MicroPython modules for the cyber:bot product.
+This folder contains the MicroPython modules v0.8.0 for the cyber:bot product.
 
 ## Instructions for using MicroPython code from this folder with the cyber:bot
 ### Set up the Mu editor

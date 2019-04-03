@@ -7,6 +7,6 @@ bot(22).tone(2000, 300)
 
 while True:
 	num = ir(2).remote()
-	if num < 1000:
+	if num > -1:
 		display.scroll( str(num), 75, wait=False )
 	sleep(100)

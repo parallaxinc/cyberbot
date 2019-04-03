@@ -1,4 +1,4 @@
-# microbit-module: ping@0.7.0
+# microbit-module: ping@0.8.0
 from cyberbot import *
 class ping():
 	def __init__(self,p=33):
