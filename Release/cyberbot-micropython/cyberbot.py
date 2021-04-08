@@ -1,4 +1,4 @@
-# microbit-module: cyberbot@0.8.0
+# microbit-module: cyberbot@0.9.2
 from microbit import *
 while True:
 	try:i2c.read(93,1)
@@ -11,6 +11,7 @@ while True:
 			except OSError:pass
 			else:break
 		break
+sleep(500)
 class bot():
 	def __init__(self,p=27,q=33):
 		self.pA=p
